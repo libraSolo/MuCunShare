@@ -1,5 +1,5 @@
 +++
-date = '2024-8-24T16:21:57+08:00'
+date = '2024-8-3T16:21:57+08:00'
 draft = false
 title = 'Go并发_Channel'
 author = '木村凉太'

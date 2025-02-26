@@ -1,5 +1,5 @@
 +++
-date = '2024-8-24T16:21:57+08:00'
+date = '2021-8-8T16:21:57+08:00'
 draft = false
 title = 'Python_游戏脚本思路及API'
 author = '木村凉太'
