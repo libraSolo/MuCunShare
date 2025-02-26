@@ -11,7 +11,7 @@ hiddenFromHomePage : true
 
 # sync.Map
 
-![请输入图片描述](http://mucunliangtai.com/usr/uploads/2024/08/502003932.jpg)
+![请输入图片描述](./../../assets/images/2024/08/502003932.jpg)
 
 `map[k]v` 其中，k是可比较类型，v是任意。
 

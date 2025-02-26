@@ -14,7 +14,7 @@ hiddenFromHomePage : true
 
 上下文联系。
 
-![请输入图片描述](http://mucunliangtai.com/usr/uploads/2024/08/2611943546.jpg)
+![请输入图片描述](./../../assets/images/2024/08/2611943546.jpg)
 
 ## 使用场景
 

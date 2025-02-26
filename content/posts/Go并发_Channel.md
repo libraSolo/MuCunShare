@@ -11,7 +11,7 @@ hiddenFromHomePage : true
 
 # Channel
 
-![请输入图片描述](http://mucunliangtai.com/usr/uploads/2024/08/506958358.jpg)
+![请输入图片描述](./../../assets/images/2024/08/506958358.jpg)
 
 channel 是一种用于在 Goroutine 之间进行通信和同步的强大工具。它允许一个 Goroutine 将数据发送到另一个 Goroutine，从而实现并发编程中的协作。
 

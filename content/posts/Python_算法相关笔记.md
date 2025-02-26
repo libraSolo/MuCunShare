@@ -70,7 +70,7 @@ hiddenFromHomePage : true
 
 ### 数组和链表的对比
 
-![请输入图片描述](http://mucunliangtai.com/usr/uploads/2022/05/1944315512.jpg)
+![请输入图片描述](./../../assets/images/2022/05/1944315512.jpg)
 
 数组的优势：定位快、查找快
 
@@ -178,11 +178,11 @@ Python 哈希表详细解释[Python 哈希表](https://blog.csdn.net/YangStudent
 
 **满二叉树**：一个二叉树的所有非叶子节点都存在左右孩子，并且所有孩子在同一层级上。
 
-![满二叉树](http://mucunliangtai.com/usr/uploads/2022/06/3621802719.jpg)
+![满二叉树](./../../assets/images/2022/06/3621802719.jpg)
 
 **完全二叉树**：**满二叉树** 的一部分，这一部分必须是按照顺序的。
 
-![完全二叉树](http://mucunliangtai.com/usr/uploads/2022/06/2843656972.jpg)
+![完全二叉树](./../../assets/images/2022/06/2843656972.jpg)
 
 ### 二叉树的物理结构
 
@@ -193,11 +193,11 @@ Python 哈希表详细解释[Python 哈希表](https://blog.csdn.net/YangStudent
 
 #### 链式储存结构
 
-![基于链表来实现](http://mucunliangtai.com/usr/uploads/2022/06/1704202179.jpg)
+![基于链表来实现](./../../assets/images/2022/06/1704202179.jpg)
 
 #### 数组
 
-![基于数组来实现](http://mucunliangtai.com/usr/uploads/2022/06/2784990947.jpg)
+![基于数组来实现](./../../assets/images/2022/06/2784990947.jpg)
 
 使用数组存储时，会按照层级顺序把二叉树的节点放到数组中对应的位置上。如果某一个节点的左孩子或右孩子空缺，则数组的相应位置也空出来。
 
@@ -251,7 +251,7 @@ Python 哈希表详细解释[Python 哈希表](https://blog.csdn.net/YangStudent
 
 # 排序算法
 
-![请输入图片描述](http://mucunliangtai.com/usr/uploads/2022/06/1807022243.jpg)
+![请输入图片描述](./../../assets/images/2022/06/1807022243.jpg)
 
 ## 冒泡排序
 

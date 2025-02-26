@@ -13,9 +13,9 @@ hiddenFromHomePage : true
 
 分布式（Distributed）是指将系统的组件或服务分散在多个物理或虚拟位置上，以便于处理、存储和管理数据。分布式系统通常由多个计算节点组成，这些节点通过网络进行通信和协作。
 
-![请输入图片描述](http://mucunliangtai.com/usr/uploads/2024/08/740177789.jpg)
+![请输入图片描述](./../../assets/images/2024/08/740177789.jpg)
 
-![请输入图片描述](http://mucunliangtai.com/usr/uploads/2024/09/1905491480.jpg)
+![请输入图片描述](./../../assets/images/2024/09/1905491480.jpg)
 
 ## 选举
 

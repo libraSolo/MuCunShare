@@ -25,7 +25,7 @@ hiddenFromHomePage : true
 
 **SVN = 版本控制 + 备份服务器**
 
-![SVN](http://mucunliangtai.com/usr/uploads/2021/12/2819219464.png)
+![SVN](./../../assets/images/2021/12/2819219464.png)
 
 SVN 是集中版本控制工具，多用户共享**同一**资源，并且可以对资源进行修改和更新。Repository 收到用户 commit 时，会记录更改资源的人和版本的更新，所以可以**恢复到之前记录的修改点** ( 回滚版本 )
 
@@ -33,7 +33,7 @@ SVN 是集中版本控制工具，多用户共享**同一**资源，并且可以
 
 ### **SVN 操作流程**
 
-![流程](http://mucunliangtai.com/usr/uploads/2021/12/3798946072.png)
+![流程](./../../assets/images/2021/12/3798946072.png)
 
 1. **Checkout :**
 2. **Checkout 是 Workspace 的初始化，通常是根目录递归 checkout**

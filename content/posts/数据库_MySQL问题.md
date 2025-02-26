@@ -11,7 +11,7 @@ hiddenFromHomePage : true
 
 # 索引
 
-![请输入图片描述](http://mucunliangtai.com/usr/uploads/2024/09/2632954084.jpg)
+![请输入图片描述](./../../assets/images/2024/09/2632954084.jpg)
 
 ## 索引的分类
 
@@ -97,7 +97,7 @@ MySQL 会尽可能使用索引，即使有零值，并且 is null 和 is not nul
 
 # SQL 优化
 
-![请输入图片描述](http://mucunliangtai.com/usr/uploads/2024/09/3281862012.png)
+![请输入图片描述](./../../assets/images/2024/09/3281862012.png)
 
 ## explain
 
@@ -120,7 +120,7 @@ MySQL 会尽可能使用索引，即使有零值，并且 is null 和 is not nul
 
 # 数据库锁
 
-![请输入图片描述](http://mucunliangtai.com/usr/uploads/2024/09/3401170950.jpg)
+![请输入图片描述](./../../assets/images/2024/09/3401170950.jpg)
 
 在 MySQL 的 **InnoDB** 引擎里面，锁是借助**索引**来实现的。或者说，加锁锁住的其实是索引项，更加具体地来说，就是锁住了**叶子节点** 。
 
@@ -181,7 +181,7 @@ MySQL 里面的锁机制特别丰富，这里我以 InnoDB 引擎为例。首先
 
 # MVCC 协议
 
-![请输入图片描述](http://mucunliangtai.com/usr/uploads/2024/09/3002231155.jpg)
+![请输入图片描述](./../../assets/images/2024/09/3002231155.jpg)
 
 避免读写阻塞延申出 MVCC 协议。
 
@@ -198,7 +198,7 @@ MySQL 里面的锁机制特别丰富，这里我以 InnoDB 引擎为例。首先
 * 不可重复读：一个事务执行过程中，对同一行数据读到的结果不同。
 * 幻读：事务执行过程中，别的事务插入了新的数据并且提交了，然后事务在后续步骤中读到了这个新的数据。
 
-![请输入图片描述](http://mucunliangtai.com/usr/uploads/2024/09/3092940619.jpg)
+![请输入图片描述](./../../assets/images/2024/09/3092940619.jpg)
 
 **理论上来说可重复读是没有解决幻读的** 。但是 MySQL 因为使用了临键锁，因此它的可重复读隔离级别已经解决了幻读问题。
 
@@ -220,7 +220,7 @@ MVCC 是 MySQL InnoDB 引擎用于控制数据并发访问的协议。MV 借助�
 
 # 数据库事务
 
-![请输入图片描述](http://mucunliangtai.com/usr/uploads/2024/09/3881946703.jpg)
+![请输入图片描述](./../../assets/images/2024/09/3881946703.jpg)
 
 ## undo log(回滚日志)
 
@@ -241,7 +241,7 @@ innoDB 引擎写数据时先修改内存的数据同时写redo log，然后刷�
 
 # 主键生成算法
 
-![请输入图片描述](http://mucunliangtai.com/usr/uploads/2024/09/3398729439.jpg)
+![请输入图片描述](./../../assets/images/2024/09/3398729439.jpg)
 
 ## UUID
 
