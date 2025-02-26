@@ -1,3 +1,12 @@
++++
+date = '2024-8-24T16:21:57+08:00'
+draft = false
+title = 'Python_字典'
+author = '木村凉太'
+categories = 'Python'
+hiddenFromHomePage = true 
++++
+
 # Python_字典
 
 **dictionary 无序的对象集合 使用 (key-value) 储存，极快的查找速度**

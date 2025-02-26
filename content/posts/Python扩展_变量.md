@@ -1,3 +1,12 @@
++++
+date = '2024-8-24T16:21:57+08:00'
+draft = false
+title = 'Python扩展_变量'
+author = '木村凉太'
+categories = 'Python'
+hiddenFromHomePage = true 
++++
+
 # Python扩展_变量
 
 # 🥪变量

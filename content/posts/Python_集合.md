@@ -1,3 +1,12 @@
++++
+date = '2024-8-24T16:21:57+08:00'
+draft = false
+title = 'Python_集合'
+author = '木村凉太'
+categories = 'Python'
+hiddenFromHomePage = true 
++++
+
 # Python_集合
 
 set和dict类似，也是一组key的集合，但没有value。**key唯一且无序**

@@ -1,3 +1,13 @@
++++
+date = '2024-8-24T16:21:57+08:00'
+draft = false
+title = 'Python_列表'
+author = '木村凉太'
+categories = 'Python'
+hiddenFromHomePage = true 
++++
+
+
 # Python_列表
 
 **列表、元组、字典、集合，都是常用的容器类型**

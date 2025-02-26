@@ -1,8 +1,13 @@
++++
+date = '2024-8-24T16:21:57+08:00'
+draft = false
+title = 'Go基础_切片扩容源码解析'
+author = '木村凉太'
+categories = 'Golang'
+hiddenFromHomePage = true 
++++
+
 # Go基础_切片扩容源码解析
-
-
-
-
 
 ```go
 // newLen通常是你当前切片的长度（即已经包含的元素数量）加上你希望添加的元素数量。
