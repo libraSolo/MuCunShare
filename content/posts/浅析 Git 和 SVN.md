@@ -1,0 +1,45 @@
+# 浅析 Git 和 SVN
+
+# **浅析 Git 和 SVN**
+
+## **Git vs SVN**
+
+****Git 是分布式**** ( 可以离线工作) ， **SVN 是集中式** ( 需要联网工作 ) 。
+
+****Git 有本地分支且 Git 分支是 ‘ 指针指向某次提交 ’**** ( 分支廉价 )
+
+****SVN 无本地分支且 SVN 分支是 ‘ 拷贝的目录 ’**** ( 分支昂贵 )
+
+---
+
+## **SVN 核心思维**
+
+**SVN = 版本控制 + 备份服务器**
+
+![SVN](http://mucunliangtai.com/usr/uploads/2021/12/2819219464.png)
+
+SVN 是集中版本控制工具，多用户共享**同一**资源，并且可以对资源进行修改和更新。Repository 收到用户 commit 时，会记录更改资源的人和版本的更新，所以可以**恢复到之前记录的修改点** ( 回滚版本 )
+
+---
+
+### **SVN 操作流程**
+
+![流程](http://mucunliangtai.com/usr/uploads/2021/12/3798946072.png)
+
+1. **Checkout :**
+2. **Checkout 是 Workspace 的初始化，通常是根目录递归 checkout**
+   ***Rule : 一个 Workspace 原则***
+3. **Update**
+   update 的对象是本地的 Workspace。服务器上有了更新的代码，或者本地缺失、损害，可以 update 可以自动判断并更新( 最新版 )
+4. **Commit**
+   **commit 的对象是整个 Repository**。**当本地修改后，尽快修改服务器代码，对团队影响很大**
+
+   * ***Rule : 完整 Issue 提交原则***
+   * ***Rule : 提交前无 bug 原则***
+   * ***Rule : 多用户协调逻辑提前确认原则***
+   * ***Rule : 提交完整文档原则***
+   * ***Rule : 提交添加日志原则***
+5. **锁定 - 修改 - 解锁**
+
+   * 一定时间内 Repository 的一个文件仅允许一个人修改，直到解锁。
+   * 锁定 **Get lock **，解锁 **Release lock**
