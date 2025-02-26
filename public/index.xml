@@ -3,9 +3,110 @@
         <title>我的新Hugo网站</title>
         <link>http://localhost:1313/</link>
         <description>这是我的酷站</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 03 Sep 2024 16:21:57 &#43;0800</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 26 Feb 2025 16:21:57 &#43;0800</lastBuildDate>
             <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>微服务_ETCD</title>
+    <link>http://localhost:1313/%E5%BE%AE%E6%9C%8D%E5%8A%A1_etcd/</link>
+    <pubDate>Wed, 26 Feb 2025 16:21:57 &#43;0800</pubDate>
+    <author>木村凉太</author>
+    <guid>http://localhost:1313/%E5%BE%AE%E6%9C%8D%E5%8A%A1_etcd/</guid>
+    <description><![CDATA[<h1 id="etcd-学习笔记"><strong>ETCD 学习笔记</strong></h1>
+<h2 id="etcd-介绍"><strong>ETCD 介绍</strong></h2>
+<p>ETCD 是一个 <strong>分布式</strong> 的、高可用的键值存储系统，它主要用于 <strong>共享配置</strong> 和 <strong>服务发现</strong>。ETCD 基于 Raft 一致性算法，保证了数据的强一致性。ETCD 的 API 是基于HTTP的。</p>
+<h3 id="etcd-能力和作用"><strong>ETCD 能力和作用</strong></h3>
+<ol>
+<li>ETCD 集群中，多节点数据的强一致性。
+<ul>
+<li>Raft 算法：基于 Raft 协议实现多节点数据一致性，确保读写操作的线性一致性。</li>
+<li>Leader 选举：自动选举 Leader 节点处理写请求，Follower 节点同步数据，保证集群高可用。</li>
+</ul>
+</li>
+<li>提供监听机制，用于监听和推送变更。
+<ul>
+<li>客户端可监听键值的变化（如配置更新、服务上下线），实时推送变更事件。</li>
+</ul>
+</li>
+<li>服务注册发现，提供 key 的过期和续约机制。
+<ul>
+<li>为键值绑定租约，自动删除过期数据（如服务心跳检测）。</li>
+<li>客户端可续约（KeepAlive）维持键的生命周期。</li>
+</ul>
+</li>
+<li>ETCD 提供了数据的安全存储和加密传输，确保数据的安全性。
+<ul>
+<li>TLS 加密：支持客户端与集群间通信加密。</li>
+<li>RBAC 权限：基于角色的访问控制，限制用户或应用的读写权限。</li>
+</ul>
+</li>
+<li>ETCD 支持数据的版本控制和历史记录，方便数据的回退和追溯。</li>
+<li>ETCD 的数据模型是基于键值对的，支持范围查询和前缀查询，方便数据的检索和过滤。</li>
+<li>ETCD 提供了多种编程语言的客户端库，方便开发者在不同的语言环境下使用 ETCD。</li>
+</ol>
+<h3 id="etcd-与其他系统的对比"><strong>ETCD 与其他系统的对比</strong></h3>
+<table>
+  <thead>
+      <tr>
+          <th><strong>特性</strong></th>
+          <th><strong>ETCD</strong></th>
+          <th><strong>ZooKeeper</strong></th>
+          <th><strong>Consul</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>一致性协议</strong></td>
+          <td>Raft</td>
+          <td>ZAB</td>
+          <td>Raft</td>
+      </tr>
+      <tr>
+          <td><strong>数据模型</strong></td>
+          <td>层级键值</td>
+          <td>树形节点（ZNode）</td>
+          <td>键值、服务发现</td>
+      </tr>
+      <tr>
+          <td><strong>Watch 机制</strong></td>
+          <td>基于键范围的事件监听</td>
+          <td>单节点监听</td>
+          <td>支持服务健康检查</td>
+      </tr>
+      <tr>
+          <td><strong>运维复杂度</strong></td>
+          <td>较低（Go 编写）</td>
+          <td>较高（Java 依赖 JVM）</td>
+          <td>中等</td>
+      </tr>
+      <tr>
+          <td><strong>云原生集成</strong></td>
+          <td>Kubernetes 默认</td>
+          <td>较少</td>
+          <td>支持但非主流</td>
+      </tr>
+      <tr>
+          <td><strong>性能</strong></td>
+          <td>高吞吐、低延迟</td>
+          <td>中等</td>
+          <td>中等</td>
+      </tr>
+      <tr>
+          <td><strong>安全性</strong></td>
+          <td>支持 TLS、RBAC</td>
+          <td>支持 ACL</td>
+          <td>支持 ACL、TLS</td>
+      </tr>
+      <tr>
+          <td><strong>适用场景</strong></td>
+          <td>服务发现、配置管理、分布式锁</td>
+          <td>分布式协调、配置管理</td>
+          <td>服务发现、健康检查</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="etcd-常用命令"><strong>ETCD 常用命令</strong></h2>]]></description>
+</item>
+<item>
     <title>浅析 Git 和 SVN</title>
     <link>http://localhost:1313/%E6%B5%85%E6%9E%90-git-%E5%92%8C-svn/</link>
     <pubDate>Tue, 03 Sep 2024 16:21:57 &#43;0800</pubDate>
@@ -426,30 +527,6 @@ Pool struct 包含一个 New 字段，这个字段的类型是函数 func() inte
 </ol>
 <h3 id="withvalue">WithValue</h3>
 <p>它持有一个 key-value 键值对，还持有 parent 的 Context。它覆盖了 Value 方法，优先从自己的存储中检查这个 key，不存在的话会从 parent 中继续检查，链式查找。</p>]]></description>
-</item>
-<item>
-    <title>Go并发_基本并发原语_Cond</title>
-    <link>http://localhost:1313/go%E5%B9%B6%E5%8F%91%E5%9F%BA%E6%9C%AC%E5%B9%B6%E5%8F%91%E5%8E%9F%E8%AF%ADcond/</link>
-    <pubDate>Fri, 09 Aug 2024 16:21:57 &#43;0800</pubDate>
-    <author>木村凉太</author>
-    <guid>http://localhost:1313/go%E5%B9%B6%E5%8F%91%E5%9F%BA%E6%9C%AC%E5%B9%B6%E5%8F%91%E5%8E%9F%E8%AF%ADcond/</guid>
-    <description><![CDATA[<h1 id="go并发_基本并发原语_cond">Go并发_基本并发原语_Cond</h1>
-<h1 id="cond">Cond</h1>
-<p></p>
-<p><strong>目的</strong>：为等待 / 通知场景下的并发问题提供支持。</p>
-<h2 id="基本用法">基本用法</h2>
-<p>Cond 并发原语初始化的时候，需要关联一个 Locker 接口的实例，一般我们使用 Mutex 或者 RWMutex。</p>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
-    <div class="code-header language-bash">
-        <span class="code-title"><i class="arrow fas fa-chevron-right fa-fw" aria-hidden="true"></i></span>
-        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
-        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Cond</span>
-</span></span><span class="line"><span class="cl">  <span class="kd">func</span> <span class="nf">NeWCond</span><span class="p">(</span><span class="nx">l</span> <span class="nx">Locker</span><span class="p">)</span> <span class="o">*</span><span class="nx">Cond</span>
-</span></span><span class="line"><span class="cl">  <span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">Cond</span><span class="p">)</span> <span class="nf">Broadcast</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">  <span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">Cond</span><span class="p">)</span> <span class="nf">Signal</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">  <span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">Cond</span><span class="p">)</span> <span class="nf">Wait</span><span class="p">()</span></span></span></code></pre></div></div><p><strong>Signal 方法</strong>：允许调用者 Caller 唤醒一个等待此 Cond 的 goroutine。如果此时没有等待的 goroutine，显然无需通知 waiter；如果 Cond 等待队列中有一个或者多个等待的 goroutine，则需要从等待队列中移除第一个 goroutine 并把它唤醒。</p>
-<p><strong>Broadcast 方法</strong>：允许调用者 Caller 唤醒所有等待此 Cond 的 goroutine。如果此时没有等待的 goroutine，显然无需通知 waiter；如果 Cond 等待队列中有一个或者多个等待的 goroutine，则清空所有等待的 goroutine，并全部唤醒。在其他编程语言中，比如 Java 语言中，Broadcast 方法也被叫做 notifyAll 方法。</p>]]></description>
 </item>
 </channel>
 </rss>

@@ -1,0 +1,108 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>微服务 - Category - 我的新Hugo网站</title>
+        <link>http://localhost:1313/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</link>
+        <description>微服务 - Category - 我的新Hugo网站</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 26 Feb 2025 16:21:57 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="self" type="application/rss+xml" /><item>
+    <title>微服务_ETCD</title>
+    <link>http://localhost:1313/%E5%BE%AE%E6%9C%8D%E5%8A%A1_etcd/</link>
+    <pubDate>Wed, 26 Feb 2025 16:21:57 &#43;0800</pubDate>
+    <author>木村凉太</author>
+    <guid>http://localhost:1313/%E5%BE%AE%E6%9C%8D%E5%8A%A1_etcd/</guid>
+    <description><![CDATA[<h1 id="etcd-学习笔记"><strong>ETCD 学习笔记</strong></h1>
+<h2 id="etcd-介绍"><strong>ETCD 介绍</strong></h2>
+<p>ETCD 是一个 <strong>分布式</strong> 的、高可用的键值存储系统，它主要用于 <strong>共享配置</strong> 和 <strong>服务发现</strong>。ETCD 基于 Raft 一致性算法，保证了数据的强一致性。ETCD 的 API 是基于HTTP的。</p>
+<h3 id="etcd-能力和作用"><strong>ETCD 能力和作用</strong></h3>
+<ol>
+<li>ETCD 集群中，多节点数据的强一致性。
+<ul>
+<li>Raft 算法：基于 Raft 协议实现多节点数据一致性，确保读写操作的线性一致性。</li>
+<li>Leader 选举：自动选举 Leader 节点处理写请求，Follower 节点同步数据，保证集群高可用。</li>
+</ul>
+</li>
+<li>提供监听机制，用于监听和推送变更。
+<ul>
+<li>客户端可监听键值的变化（如配置更新、服务上下线），实时推送变更事件。</li>
+</ul>
+</li>
+<li>服务注册发现，提供 key 的过期和续约机制。
+<ul>
+<li>为键值绑定租约，自动删除过期数据（如服务心跳检测）。</li>
+<li>客户端可续约（KeepAlive）维持键的生命周期。</li>
+</ul>
+</li>
+<li>ETCD 提供了数据的安全存储和加密传输，确保数据的安全性。
+<ul>
+<li>TLS 加密：支持客户端与集群间通信加密。</li>
+<li>RBAC 权限：基于角色的访问控制，限制用户或应用的读写权限。</li>
+</ul>
+</li>
+<li>ETCD 支持数据的版本控制和历史记录，方便数据的回退和追溯。</li>
+<li>ETCD 的数据模型是基于键值对的，支持范围查询和前缀查询，方便数据的检索和过滤。</li>
+<li>ETCD 提供了多种编程语言的客户端库，方便开发者在不同的语言环境下使用 ETCD。</li>
+</ol>
+<h3 id="etcd-与其他系统的对比"><strong>ETCD 与其他系统的对比</strong></h3>
+<table>
+  <thead>
+      <tr>
+          <th><strong>特性</strong></th>
+          <th><strong>ETCD</strong></th>
+          <th><strong>ZooKeeper</strong></th>
+          <th><strong>Consul</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>一致性协议</strong></td>
+          <td>Raft</td>
+          <td>ZAB</td>
+          <td>Raft</td>
+      </tr>
+      <tr>
+          <td><strong>数据模型</strong></td>
+          <td>层级键值</td>
+          <td>树形节点（ZNode）</td>
+          <td>键值、服务发现</td>
+      </tr>
+      <tr>
+          <td><strong>Watch 机制</strong></td>
+          <td>基于键范围的事件监听</td>
+          <td>单节点监听</td>
+          <td>支持服务健康检查</td>
+      </tr>
+      <tr>
+          <td><strong>运维复杂度</strong></td>
+          <td>较低（Go 编写）</td>
+          <td>较高（Java 依赖 JVM）</td>
+          <td>中等</td>
+      </tr>
+      <tr>
+          <td><strong>云原生集成</strong></td>
+          <td>Kubernetes 默认</td>
+          <td>较少</td>
+          <td>支持但非主流</td>
+      </tr>
+      <tr>
+          <td><strong>性能</strong></td>
+          <td>高吞吐、低延迟</td>
+          <td>中等</td>
+          <td>中等</td>
+      </tr>
+      <tr>
+          <td><strong>安全性</strong></td>
+          <td>支持 TLS、RBAC</td>
+          <td>支持 ACL</td>
+          <td>支持 ACL、TLS</td>
+      </tr>
+      <tr>
+          <td><strong>适用场景</strong></td>
+          <td>服务发现、配置管理、分布式锁</td>
+          <td>分布式协调、配置管理</td>
+          <td>服务发现、健康检查</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="etcd-常用命令"><strong>ETCD 常用命令</strong></h2>]]></description>
+</item>
+</channel>
+</rss>

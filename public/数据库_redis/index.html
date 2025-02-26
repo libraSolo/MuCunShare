@@ -225,11 +225,11 @@ QA: Redis 是怎么控制定期删除开销的？ 在每一个定期删除循环
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="http://mucunliangtai.com/usr/uploads/2024/09/2736685315.jpg"
-        data-srcset="http://mucunliangtai.com/usr/uploads/2024/09/2736685315.jpg, http://mucunliangtai.com/usr/uploads/2024/09/2736685315.jpg 1.5x, http://mucunliangtai.com/usr/uploads/2024/09/2736685315.jpg 2x"
+        data-src="/images/2024/09/2736685315.jpg"
+        data-srcset="/images/2024/09/2736685315.jpg, /images/2024/09/2736685315.jpg 1.5x, /images/2024/09/2736685315.jpg 2x"
         data-sizes="auto"
-        alt="http://mucunliangtai.com/usr/uploads/2024/09/2736685315.jpg"
-        title="请输入图片描述" /></p>
+        alt="/images/2024/09/2736685315.jpg"
+        title="请输入图片描述" width="1072" height="1280" /></p>
 <h3 id="过期机制的思路">过期机制的思路</h3>
 <ul>
 <li>定时删除：计时器，到期删除。</li>
@@ -240,11 +240,11 @@ QA: Redis 是怎么控制定期删除开销的？ 在每一个定期删除循环
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="http://mucunliangtai.com/usr/uploads/2024/09/2132375535.jpg"
-        data-srcset="http://mucunliangtai.com/usr/uploads/2024/09/2132375535.jpg, http://mucunliangtai.com/usr/uploads/2024/09/2132375535.jpg 1.5x, http://mucunliangtai.com/usr/uploads/2024/09/2132375535.jpg 2x"
+        data-src="/images/2024/09/2132375535.jpg"
+        data-srcset="/images/2024/09/2132375535.jpg, /images/2024/09/2132375535.jpg 1.5x, /images/2024/09/2132375535.jpg 2x"
         data-sizes="auto"
-        alt="http://mucunliangtai.com/usr/uploads/2024/09/2132375535.jpg"
-        title="请输入图片描述" /></p>
+        alt="/images/2024/09/2132375535.jpg"
+        title="请输入图片描述" width="1280" height="504" /></p>
 <h3 id="qa为什么不立刻删除">QA:为什么不立刻删除？</h3>
 <p>理论上来说，并不是做不到，只不过代价比较高昂不值得而已。
 最简单的做法就是使用定时器，但是定时器本身开销太大，还得考虑在更新过期时间的时候重置定时器。另外一种思路就是使用延迟队列，但是延迟队列本身开销也很大，修改过期时间也要调整延迟队列，还要引入大量的并发控制。
@@ -259,11 +259,11 @@ QA: Redis 是怎么控制定期删除开销的？ 在每一个定期删除循环
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="http://mucunliangtai.com/usr/uploads/2024/09/4127343317.jpg"
-        data-srcset="http://mucunliangtai.com/usr/uploads/2024/09/4127343317.jpg, http://mucunliangtai.com/usr/uploads/2024/09/4127343317.jpg 1.5x, http://mucunliangtai.com/usr/uploads/2024/09/4127343317.jpg 2x"
+        data-src="/images/2024/09/4127343317.jpg"
+        data-srcset="/images/2024/09/4127343317.jpg, /images/2024/09/4127343317.jpg 1.5x, /images/2024/09/4127343317.jpg 2x"
         data-sizes="auto"
-        alt="http://mucunliangtai.com/usr/uploads/2024/09/4127343317.jpg"
-        title="请输入图片描述" /></p>
+        alt="/images/2024/09/4127343317.jpg"
+        title="请输入图片描述" width="1280" height="1102" /></p>
 <h3 id="为什么要淘汰">为什么要淘汰</h3>
 <p>缓存满了，内存使用有上限。不能直接报错，所以要淘汰。</p>
 <h3 id="lru-最近最少使用算法">LRU (最近最少使用算法)</h3>
@@ -281,11 +281,11 @@ QA: Redis 是怎么控制定期删除开销的？ 在每一个定期删除循环
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="http://mucunliangtai.com/usr/uploads/2024/09/3997647587.jpg"
-        data-srcset="http://mucunliangtai.com/usr/uploads/2024/09/3997647587.jpg, http://mucunliangtai.com/usr/uploads/2024/09/3997647587.jpg 1.5x, http://mucunliangtai.com/usr/uploads/2024/09/3997647587.jpg 2x"
+        data-src="/images/2024/09/3997647587.jpg"
+        data-srcset="/images/2024/09/3997647587.jpg, /images/2024/09/3997647587.jpg 1.5x, /images/2024/09/3997647587.jpg 2x"
         data-sizes="auto"
-        alt="http://mucunliangtai.com/usr/uploads/2024/09/3997647587.jpg"
-        title="请输入图片描述" /></p>
+        alt="/images/2024/09/3997647587.jpg"
+        title="请输入图片描述" width="1280" height="1206" /></p>
 <ul>
 <li>Cache Aside (旁路缓存)</li>
 <li>Read/Write Through (读写穿透)</li>
@@ -317,11 +317,11 @@ QA: Redis 是怎么控制定期删除开销的？ 在每一个定期删除循环
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="http://mucunliangtai.com/usr/uploads/2024/09/3843790875.jpg"
-        data-srcset="http://mucunliangtai.com/usr/uploads/2024/09/3843790875.jpg, http://mucunliangtai.com/usr/uploads/2024/09/3843790875.jpg 1.5x, http://mucunliangtai.com/usr/uploads/2024/09/3843790875.jpg 2x"
+        data-src="/images/2024/09/3843790875.jpg"
+        data-srcset="/images/2024/09/3843790875.jpg, /images/2024/09/3843790875.jpg 1.5x, /images/2024/09/3843790875.jpg 2x"
         data-sizes="auto"
-        alt="http://mucunliangtai.com/usr/uploads/2024/09/3843790875.jpg"
-        title="请输入图片描述" /></p>
+        alt="/images/2024/09/3843790875.jpg"
+        title="请输入图片描述" width="1140" height="1280" /></p>
 <h3 id="double-check-模式">double-check 模式</h3>
 <p>它的基本思路可以总结为检查、加锁、检查，所以也叫做 double-check。double-check 经常用在使用读写锁的场景。</p>
 <h3 id="数据不一致的根源">数据不一致的根源</h3>
@@ -340,11 +340,11 @@ QA: Redis 是怎么控制定期删除开销的？ 在每一个定期删除循环
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="http://mucunliangtai.com/usr/uploads/2024/09/3589049648.jpg"
-        data-srcset="http://mucunliangtai.com/usr/uploads/2024/09/3589049648.jpg, http://mucunliangtai.com/usr/uploads/2024/09/3589049648.jpg 1.5x, http://mucunliangtai.com/usr/uploads/2024/09/3589049648.jpg 2x"
+        data-src="/images/2024/09/3589049648.jpg"
+        data-srcset="/images/2024/09/3589049648.jpg, /images/2024/09/3589049648.jpg 1.5x, /images/2024/09/3589049648.jpg 2x"
         data-sizes="auto"
-        alt="http://mucunliangtai.com/usr/uploads/2024/09/3589049648.jpg"
-        title="请输入图片描述" /></p>
+        alt="/images/2024/09/3589049648.jpg"
+        title="请输入图片描述" width="1280" height="922" /></p>
 <h3 id="缓存穿透">缓存穿透</h3>
 <p>指<strong>数据既不在缓存中，也不在数据库中</strong> 。</p>
 <h4 id="解决方案">解决方案</h4>
@@ -370,11 +370,11 @@ QA: Redis 是怎么控制定期删除开销的？ 在每一个定期删除循环
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="http://mucunliangtai.com/usr/uploads/2024/09/264199379.jpg"
-        data-srcset="http://mucunliangtai.com/usr/uploads/2024/09/264199379.jpg, http://mucunliangtai.com/usr/uploads/2024/09/264199379.jpg 1.5x, http://mucunliangtai.com/usr/uploads/2024/09/264199379.jpg 2x"
+        data-src="/images/2024/09/264199379.jpg"
+        data-srcset="/images/2024/09/264199379.jpg, /images/2024/09/264199379.jpg 1.5x, /images/2024/09/264199379.jpg 2x"
         data-sizes="auto"
-        alt="http://mucunliangtai.com/usr/uploads/2024/09/264199379.jpg"
-        title="请输入图片描述" /></p>
+        alt="/images/2024/09/264199379.jpg"
+        title="请输入图片描述" width="1280" height="1254" /></p>
 <p>利用 Redis 来实现分布式锁的时候，所谓的锁就是一个普通的键值对。而加锁就是使用 SETNX 命令，排他地设置一个键值对。如果 SETNX 命令设置键值对成功了，那么说明加锁成功。如果没有设置成功，说明这个时候有人持有了锁，需要等待别人释放锁。而相应地，释放锁就是删除这个键值对。</p>
 <h3 id="等待时间">等待时间</h3>
 <ul>

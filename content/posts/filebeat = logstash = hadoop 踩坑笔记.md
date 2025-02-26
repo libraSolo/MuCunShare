@@ -66,9 +66,9 @@ output.logstash:
 
 再次启动 start-hdf.sh 脚本看是否是端口号开启,如图前后对比
 
-[collapse status="false" title="启动图片对比"]![更改前](./../../assets/images/2022/09/3307793698.png)
+[collapse status="false" title="启动图片对比"]![更改前](./images/2022/09/3307793698.png)
 
-![更改后](./../../assets/images/2022/09/308574443.png)
+![更改后](./images/2022/09/308574443.png)
 
 [/collapse]
 

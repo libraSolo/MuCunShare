@@ -2,9 +2,11 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>http://localhost:1313/categories/</loc><lastmod>2024-09-03T16:21:57&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>http://localhost:1313/posts/</loc><lastmod>2024-09-03T16:21:57&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>http://localhost:1313/</loc><lastmod>2024-09-03T16:21:57&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://localhost:1313/categories/</loc><lastmod>2025-02-26T16:21:57&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/posts/</loc><lastmod>2025-02-26T16:21:57&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</loc><lastmod>2025-02-26T16:21:57&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/%E5%BE%AE%E6%9C%8D%E5%8A%A1_etcd/</loc><lastmod>2025-02-26T16:21:57&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/</loc><lastmod>2025-02-26T16:21:57&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://localhost:1313/%E6%B5%85%E6%9E%90-git-%E5%92%8C-svn/</loc><lastmod>2024-09-03T16:21:57&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://localhost:1313/categories/%E7%AC%94%E8%AE%B0/</loc><lastmod>2024-09-03T16:21:57&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://localhost:1313/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc><lastmod>2024-09-02T16:21:57&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>

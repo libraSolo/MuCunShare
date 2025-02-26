@@ -12,7 +12,7 @@ hiddenFromHomePage : true
 
 # Semaphore
 
-![请输入图片描述](./../../assets/images/2024/09/3849264388.jpg)
+![请输入图片描述](./images/2024/09/3849264388.jpg)
 
 * 信号量
   1. 计数信号量

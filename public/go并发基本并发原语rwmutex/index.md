@@ -5,7 +5,7 @@
 
 # RWMutex
 
-![请输入图片描述](http://mucunliangtai.com/usr/uploads/2024/08/2090840451.jpg)
+![请输入图片描述](./images/2024/08/2090840451.jpg)
 
 **概念**：RWMutex 在某一时刻只能由任意数量的 reader 持有，或者是只被单个的 writer 持有。
 
