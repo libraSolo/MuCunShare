@@ -1,0 +1,40 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Bug - Category - 我的新Hugo网站</title>
+        <link>http://localhost:1313/categories/bug/</link>
+        <description>Bug - Category - 我的新Hugo网站</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 01 Dec 2022 16:21:57 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/categories/bug/" rel="self" type="application/rss+xml" /><item>
+    <title>日志采集脚本</title>
+    <link>http://localhost:1313/filebeat-logstash-hadoop-%E8%B8%A9%E5%9D%91%E7%AC%94%E8%AE%B0/</link>
+    <pubDate>Thu, 01 Dec 2022 16:21:57 &#43;0800</pubDate>
+    <author>木村凉太</author>
+    <guid>http://localhost:1313/filebeat-logstash-hadoop-%E8%B8%A9%E5%9D%91%E7%AC%94%E8%AE%B0/</guid>
+    <description><![CDATA[<h1 id="filebeat--logstash--hadoop-踩坑笔记">filebeat =&gt; logstash =&gt; hadoop 踩坑笔记</h1>
+<h1 id="hadoop-和-hdfs-操作">Hadoop 和 HDFS 操作</h1>
+<p><em><strong>此文关于部署以及go连接部署问题</strong></em></p>
+<h2 id="go-连接-hadoop-注意事项">GO 连接 Hadoop 注意事项</h2>
+<ol>
+<li>HDFS 设置时候 确保在 hsdfs-site.xml 文件中,开启<code>dfs.webhdfs.enabled</code></li>
+<li>确保在 core-site.xml 中, 开启<code>hadoop.http.staticuser.user</code></li>
+</ol>
+<h2 id="踩坑-filebeat">踩坑: filebeat</h2>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-chevron-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="o">-</span> <span class="ss">type</span><span class="p">:</span> <span class="n">log</span>
+</span></span><span class="line"><span class="cl">  <span class="ss">enabled</span><span class="p">:</span> <span class="kp">true</span>
+</span></span><span class="line"><span class="cl">  <span class="ss">paths</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">     <span class="o">-</span> <span class="sr">/home/</span><span class="o">*/</span><span class="n">json</span><span class="o">.</span><span class="n">log</span><span class="o">*</span>
+</span></span><span class="line"><span class="cl">  <span class="ss">tags</span><span class="p">:</span> <span class="o">[</span><span class="s2">&#34;oss&#34;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">output</span><span class="o">.</span><span class="n">logstash</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">  <span class="ss">hosts</span><span class="p">:</span> <span class="o">[</span><span class="s2">&#34;192.168.1.56:5044&#34;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">  <span class="ss">loadbalance</span><span class="p">:</span> <span class="kp">false</span></span></span></code></pre></div></div><p>可以直接读取json格式输出到 logstash</p>
+<h2 id="踩坑-go-连接-hdfs-只能查看目录无法查看内容">踩坑: go 连接 HDFS 只能查看目录无法查看内容</h2>
+<p>相关报错:</p>
+<p><code>dial tcp:  lookup vm-fgame70: no such host</code></p>
+<p><code>get &quot;http://localhost:9864/webhdfs/v1/oss/2022-09-16-04.log?op=open&amp;user.name=hadoop&amp;namenoderpcaddress=192.168.1.70:9000&amp;buffersize=4096&amp;length=14743&amp;offset=0&quot;: dial tcp [::1]:9864: connectex: no connection could be made because the target machine actively refused it.</code></p>]]></description>
+</item>
+</channel>
+</rss>

@@ -1,11 +1,11 @@
-+++
-date = '2021-8-10T16:21:57+08:00'
-draft = false
-title = 'Python_算法相关笔记'
-author = '木村凉太'
-categories = 'Python'
-hiddenFromHomePage = true 
-+++
+---
+date : 2021-08-10T16:21:57+08:00
+draft : false
+title : 'Python_算法相关笔记'
+author : '木村凉太'
+categories : ['Python']
+hiddenFromHomePage : true 
+---
 
 # Python_语言特性笔记
 

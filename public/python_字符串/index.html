@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Python_字符串 - 我的新Hugo网站</title><meta name="Description" content="这是我的酷站"><meta property="og:url" content="http://localhost:1313/python_%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+  <meta property="og:site_name" content="我的新Hugo网站">
+  <meta property="og:title" content="Python_字符串">
+  <meta property="og:description" content="Python_字符串 1. 字符串String # python中没有字符类型，一个字符也是字符串类型 # UTF-8编码 所有字符串都是unicode字符串 # 单引号 双引号 三引号 word = &#39;String&#39; sentence = &#34;this is sentence&#34; paragraph = &#34;&#34;&#34; more this is paragraph &#34;&#34;&#34;2. 转义字符 my_str = &#34;i&#39;m a student&#34; my_str1 = &#39;i\&#39;m a student&#39; my_str2 = r&#39;i\&#39;m a student&#39; # 转义不生效 print(my_str) print(my_str1) print(my_str2) &#39;&#39;&#39; 执行结果： i&#39;m a student i&#39;m a student i\&#39;m a student &#39;&#39;&#39;3. 字符串切片（字符串的截取） str1 = &#34;student&#34; # 正索引 0123456 # 负索引-7....-1 print(len(str1)) # 内置函数len() 获取长度 print(str1[2:6]) # 截取 print(str1[2:6:2]) # 左闭，右开，间隔步长 print(str1[::-1]) # 倒着打印 &#39;&#39;&#39; 执行结果： 14 ncun nu iatgnailnucnum &#39;&#39;&#39;4. 字符串的拼接 str1 = &#34;student&#34; str1 &#43;= &#34;study&#34; print(str1) print(&#39;*&#39; * 30) str2 = &#34;tooooooooooooooooooo&#34;\ &#34;long&#34;\ &#34;write&#34; print(str2) &#39;&#39;&#39; 执行结果： studentstudy ****************************** tooooooooooooooooooolongwrite &#39;&#39;&#39;5. String 常用函数 5.1 字母转换 # capitalize 首字母大写 str1 = &#34;student&#34; res = str1.capitalize() print(res) # title 每个单词的首字母大写 str1 = &#34;student and teacher &#34; res = str1.title() print(res) res = str1.istitle() #判断是否每个单词首字母大写 print(res) # upper 全大写 # str1.upper() # lower 全小写 # str1.lower() # swapcase 大小写互换 # str1.swapcase() &#39;&#39;&#39; 执行结果： Student Student And Teacher False &#39;&#39;&#39;5.2 统计和查找 # count 统计字符串中某个元素的数量 str1 = &#34;Students&#34; res = str1.count(&#34;S&#34;) #区分大小写，可为字符串 print(res) # find 查找某个字符第一次出现的位置 # find(&#34;字符串&#34;，开始位置，结束位置) 结束位置取不到，取到之前的一个值。取不到为-1 # index 与 find 功能相同。find找不到返回-1，而index取不到会报错。 &#39;&#39;&#39; 执行结果： 1 &#39;&#39;&#39;5.3 判断开头、结尾 # startswith 判断是否以某个字符或字符串为开头 # startswith(&#39;字符串&#39;，开始位置，结束位置) 返回为True或False # endswith 判断是否以某个字符或字符串为结尾 # endswith(&#39;字符串&#39;，开始位置，结束位置) 返回为True或False5.4 分割与拼接 # split 按某字符将字符串分割成 列表(默认从左到右按空格分隔) # split(&#34;字符串&#34;, 切割个数) str1 = &#34;我_是_憨_憨&#34; res = str1.split(&#34;_&#34;, 1) print(res) # rsplit 从右往左排列 注意前面有r # join 按某字符将列表拼接成字符串(容器类型都可) list1 = [&#34;st&#34;, &#34;ud&#34;, &#34;ent&#34;] res = &#34;-&#34;.join(list1) print(res) &#39;&#39;&#39; 执行结果： [&#39;我&#39;, &#39;是_憨_憨&#39;] st-ud-ent &#39;&#39;&#39;5.5去掉与替换 # replace 替换字符串(第三个参数选择替换的次数) str1 = &#34;student&#34; res = str1.replace(&#34;stu&#34;,&#34;aaa&#34;) print(res) res = str1.replace(&#34;t&#34;, &#34;a&#34;, 1) print(res) # strip 默认去掉首位两边的空白符 str1 = &#34;\r student \t \n&#34; print(str1) res = str1.strip() print(res) # lstrip() 只去掉左侧空白符 # rstrip() 只去掉右侧空白符 &#39;&#39;&#39; 执行结果： aaadent saudent student student &#39;&#39;&#39;5.6 判断类型 # isspace() 字符串中只包含空白 返回True 否则返回False res = &#34; &#34; print(res.isspace()) # isalpha() 字符串是否为纯字母 res = &#34;abc1&#34; print(res.isalpha()) res = &#34;abc&#34; print(res.isalpha()) res = &#34;#a&#34; print(res.isalpha()) # isalnum() 字符串至少一个字符，所有字符都有字母或者数字 res = &#34;a&#34; print(res.isalnum()) res = &#34;1.1&#34; print(res.isalnum()) res = &#34;1&#34; print(res.isalnum()) # isdecimal 检测字符串是否以数字组成，必须是纯数字 # isdigit() 字符串只包含数字则返回True，否则返回False # isnumeric() 字符串只包含数字字符，返回True，否则返回False # 差别在 汉字数字 罗马数字 byte数字 &#39;&#39;&#39; 执行结果： True False True False True False True &#39;&#39;&#39;5.7 长度、填充 str1 = &#34;student&#34; # len()计算长度 print(len(str1)) # center 填充字符串，原字符居中(默认空格填充) res = str1.center(10, &#34;*&#34;) print(res) &#39;&#39;&#39; 执行结果： 7 *student** &#39;&#39;&#39;5.8 编码和解码 # max 返回字符串编码最大的字母 # min 返回字符串编码最小的字母 # ord 内置函数，返回汉字或字母的Unicode编码 # chr 内置函数，给定Unicode编码 返回字符串 str1 = &#34;学生&#34; str_utf8 = str1.encode(&#34;UTF-8&#34;) str_gbk = str1.encode(&#34;GBK&#34;) print(f&#34;URF-8编码：{str_utf8}&#34;) print(f&#34;GBK编码：{str_gbk}&#34;) print(f&#34;URF-8解码：{str_utf8.decode(&#39;UTF-8&#39;)}&#34;) print(f&#34;GBK解码：{str_gbk.decode(&#39;GBK&#39;)}&#34;) &#39;&#39;&#39; 执行结果： URF-8编码：b&#39;\xe5\xad\xa6\xe7\x94\x9f&#39; GBK编码：b&#39;\xd1\xa7\xc9\xfa&#39; URF-8解码：学生 GBK解码：学生 &#39;&#39;&#39;">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2021-08-05T16:21:57+08:00">
+    <meta property="article:modified_time" content="2021-08-05T16:21:57+08:00">
+    <meta property="og:image" content="http://localhost:1313/logo.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/logo.png">
+  <meta name="twitter:title" content="Python_字符串">
+  <meta name="twitter:description" content="Python_字符串 1. 字符串String # python中没有字符类型，一个字符也是字符串类型 # UTF-8编码 所有字符串都是unicode字符串 # 单引号 双引号 三引号 word = &#39;String&#39; sentence = &#34;this is sentence&#34; paragraph = &#34;&#34;&#34; more this is paragraph &#34;&#34;&#34;2. 转义字符 my_str = &#34;i&#39;m a student&#34; my_str1 = &#39;i\&#39;m a student&#39; my_str2 = r&#39;i\&#39;m a student&#39; # 转义不生效 print(my_str) print(my_str1) print(my_str2) &#39;&#39;&#39; 执行结果： i&#39;m a student i&#39;m a student i\&#39;m a student &#39;&#39;&#39;3. 字符串切片（字符串的截取） str1 = &#34;student&#34; # 正索引 0123456 # 负索引-7....-1 print(len(str1)) # 内置函数len() 获取长度 print(str1[2:6]) # 截取 print(str1[2:6:2]) # 左闭，右开，间隔步长 print(str1[::-1]) # 倒着打印 &#39;&#39;&#39; 执行结果： 14 ncun nu iatgnailnucnum &#39;&#39;&#39;4. 字符串的拼接 str1 = &#34;student&#34; str1 &#43;= &#34;study&#34; print(str1) print(&#39;*&#39; * 30) str2 = &#34;tooooooooooooooooooo&#34;\ &#34;long&#34;\ &#34;write&#34; print(str2) &#39;&#39;&#39; 执行结果： studentstudy ****************************** tooooooooooooooooooolongwrite &#39;&#39;&#39;5. String 常用函数 5.1 字母转换 # capitalize 首字母大写 str1 = &#34;student&#34; res = str1.capitalize() print(res) # title 每个单词的首字母大写 str1 = &#34;student and teacher &#34; res = str1.title() print(res) res = str1.istitle() #判断是否每个单词首字母大写 print(res) # upper 全大写 # str1.upper() # lower 全小写 # str1.lower() # swapcase 大小写互换 # str1.swapcase() &#39;&#39;&#39; 执行结果： Student Student And Teacher False &#39;&#39;&#39;5.2 统计和查找 # count 统计字符串中某个元素的数量 str1 = &#34;Students&#34; res = str1.count(&#34;S&#34;) #区分大小写，可为字符串 print(res) # find 查找某个字符第一次出现的位置 # find(&#34;字符串&#34;，开始位置，结束位置) 结束位置取不到，取到之前的一个值。取不到为-1 # index 与 find 功能相同。find找不到返回-1，而index取不到会报错。 &#39;&#39;&#39; 执行结果： 1 &#39;&#39;&#39;5.3 判断开头、结尾 # startswith 判断是否以某个字符或字符串为开头 # startswith(&#39;字符串&#39;，开始位置，结束位置) 返回为True或False # endswith 判断是否以某个字符或字符串为结尾 # endswith(&#39;字符串&#39;，开始位置，结束位置) 返回为True或False5.4 分割与拼接 # split 按某字符将字符串分割成 列表(默认从左到右按空格分隔) # split(&#34;字符串&#34;, 切割个数) str1 = &#34;我_是_憨_憨&#34; res = str1.split(&#34;_&#34;, 1) print(res) # rsplit 从右往左排列 注意前面有r # join 按某字符将列表拼接成字符串(容器类型都可) list1 = [&#34;st&#34;, &#34;ud&#34;, &#34;ent&#34;] res = &#34;-&#34;.join(list1) print(res) &#39;&#39;&#39; 执行结果： [&#39;我&#39;, &#39;是_憨_憨&#39;] st-ud-ent &#39;&#39;&#39;5.5去掉与替换 # replace 替换字符串(第三个参数选择替换的次数) str1 = &#34;student&#34; res = str1.replace(&#34;stu&#34;,&#34;aaa&#34;) print(res) res = str1.replace(&#34;t&#34;, &#34;a&#34;, 1) print(res) # strip 默认去掉首位两边的空白符 str1 = &#34;\r student \t \n&#34; print(str1) res = str1.strip() print(res) # lstrip() 只去掉左侧空白符 # rstrip() 只去掉右侧空白符 &#39;&#39;&#39; 执行结果： aaadent saudent student student &#39;&#39;&#39;5.6 判断类型 # isspace() 字符串中只包含空白 返回True 否则返回False res = &#34; &#34; print(res.isspace()) # isalpha() 字符串是否为纯字母 res = &#34;abc1&#34; print(res.isalpha()) res = &#34;abc&#34; print(res.isalpha()) res = &#34;#a&#34; print(res.isalpha()) # isalnum() 字符串至少一个字符，所有字符都有字母或者数字 res = &#34;a&#34; print(res.isalnum()) res = &#34;1.1&#34; print(res.isalnum()) res = &#34;1&#34; print(res.isalnum()) # isdecimal 检测字符串是否以数字组成，必须是纯数字 # isdigit() 字符串只包含数字则返回True，否则返回False # isnumeric() 字符串只包含数字字符，返回True，否则返回False # 差别在 汉字数字 罗马数字 byte数字 &#39;&#39;&#39; 执行结果： True False True False True False True &#39;&#39;&#39;5.7 长度、填充 str1 = &#34;student&#34; # len()计算长度 print(len(str1)) # center 填充字符串，原字符居中(默认空格填充) res = str1.center(10, &#34;*&#34;) print(res) &#39;&#39;&#39; 执行结果： 7 *student** &#39;&#39;&#39;5.8 编码和解码 # max 返回字符串编码最大的字母 # min 返回字符串编码最小的字母 # ord 内置函数，返回汉字或字母的Unicode编码 # chr 内置函数，给定Unicode编码 返回字符串 str1 = &#34;学生&#34; str_utf8 = str1.encode(&#34;UTF-8&#34;) str_gbk = str1.encode(&#34;GBK&#34;) print(f&#34;URF-8编码：{str_utf8}&#34;) print(f&#34;GBK编码：{str_gbk}&#34;) print(f&#34;URF-8解码：{str_utf8.decode(&#39;UTF-8&#39;)}&#34;) print(f&#34;GBK解码：{str_gbk.decode(&#39;GBK&#39;)}&#34;) &#39;&#39;&#39; 执行结果： URF-8编码：b&#39;\xe5\xad\xa6\xe7\x94\x9f&#39; GBK编码：b&#39;\xd1\xa7\xc9\xfa&#39; URF-8解码：学生 GBK解码：学生 &#39;&#39;&#39;">
+<meta name="application-name" content="我的酷站">
+<meta name="apple-mobile-web-app-title" content="我的酷站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/python_%E5%AD%97%E7%AC%A6%E4%B8%B2/" /><link rel="prev" href="http://localhost:1313/python_%E5%AD%97%E5%85%B8/" /><link rel="next" href="http://localhost:1313/python_%E5%B0%81%E8%A3%85/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Python_字符串",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/localhost:1313\/python_%E5%AD%97%E7%AC%A6%E4%B8%B2\/"
+        },"genre": "posts","wordcount":  408 ,
+        "url": "http:\/\/localhost:1313\/python_%E5%AD%97%E7%AC%A6%E4%B8%B2\/","datePublished": "2021-08-05T16:21:57+08:00","dateModified": "2021-08-05T16:21:57+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "木村凉太"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="我的新Hugo网站"></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="我的新Hugo网站"></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Python_字符串</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>木村凉太</a></span>&nbsp;<span class="post-category">included in <a href="/categories/python/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Python</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-08-05">2021-08-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;408 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#51-字母转换">5.1 字母转换</a></li>
+    <li><a href="#52-统计和查找">5.2 统计和查找</a></li>
+    <li><a href="#53-判断开头结尾">5.3 判断开头、结尾</a></li>
+    <li><a href="#54-分割与拼接">5.4 分割与拼接</a></li>
+    <li><a href="#55去掉与替换">5.5去掉与替换</a></li>
+    <li><a href="#56-判断类型">5.6 判断类型</a></li>
+    <li><a href="#57-长度填充">5.7 长度、填充</a></li>
+    <li><a href="#58-编码和解码">5.8 编码和解码</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="python_字符串">Python_字符串</h1>
+<h1 id="1-字符串string">1. 字符串String</h1>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-chevron-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># python中没有字符类型，一个字符也是字符串类型</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># UTF-8编码 所有字符串都是unicode字符串</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 单引号 双引号 三引号</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">word</span> <span class="o">=</span> <span class="s1">&#39;String&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">sentence</span> <span class="o">=</span> <span class="s2">&#34;this is sentence&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">paragraph</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34; more
+</span></span></span><span class="line"><span class="cl"><span class="s2">this is paragraph &#34;&#34;&#34;</span></span></span></code></pre></div></div><h1 id="2-转义字符">2. 转义字符</h1>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-chevron-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">my_str</span> <span class="o">=</span> <span class="s2">&#34;i&#39;m a student&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">my_str1</span> <span class="o">=</span> <span class="s1">&#39;i</span><span class="se">\&#39;</span><span class="s1">m a student&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">my_str2</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;i</span><span class="se">\&#39;</span><span class="s1">m a student&#39;</span>  <span class="c1"># 转义不生效</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">my_str</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">my_str1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">my_str2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">执行结果：
+</span></span></span><span class="line"><span class="cl"><span class="s1">i&#39;m a student
+</span></span></span><span class="line"><span class="cl"><span class="s1">i&#39;m a student
+</span></span></span><span class="line"><span class="cl"><span class="s1">i</span><span class="se">\&#39;</span><span class="s1">m a student
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span></span></span></code></pre></div></div><h1 id="3-字符串切片字符串的截取">3. 字符串切片（字符串的截取）</h1>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-chevron-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">str1</span> <span class="o">=</span> <span class="s2">&#34;student&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 正索引 0123456</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 负索引-7....-1</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">str1</span><span class="p">))</span>    <span class="c1"># 内置函数len() 获取长度</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">str1</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">6</span><span class="p">])</span>    <span class="c1"># 截取</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">str1</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># 左闭，右开，间隔步长</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">str1</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>   <span class="c1"># 倒着打印</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">执行结果：
+</span></span></span><span class="line"><span class="cl"><span class="s1">14
+</span></span></span><span class="line"><span class="cl"><span class="s1">ncun
+</span></span></span><span class="line"><span class="cl"><span class="s1">nu
+</span></span></span><span class="line"><span class="cl"><span class="s1">iatgnailnucnum
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span></span></span></code></pre></div></div><h1 id="4-字符串的拼接">4. 字符串的拼接</h1>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-chevron-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">str1</span> <span class="o">=</span> <span class="s2">&#34;student&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">str1</span> <span class="o">+=</span> <span class="s2">&#34;study&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">str1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;*&#39;</span> <span class="o">*</span> <span class="mi">30</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">str2</span> <span class="o">=</span> <span class="s2">&#34;tooooooooooooooooooo&#34;</span>\
+</span></span><span class="line"><span class="cl">       <span class="s2">&#34;long&#34;</span>\
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;write&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">str2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">执行结果：
+</span></span></span><span class="line"><span class="cl"><span class="s1">studentstudy
+</span></span></span><span class="line"><span class="cl"><span class="s1">******************************
+</span></span></span><span class="line"><span class="cl"><span class="s1">tooooooooooooooooooolongwrite
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span></span></span></code></pre></div></div><h1 id="5-string-常用函数">5. String 常用函数</h1>
+<h2 id="51-字母转换">5.1 字母转换</h2>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-chevron-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># capitalize 首字母大写</span>
+</span></span><span class="line"><span class="cl"><span class="n">str1</span> <span class="o">=</span> <span class="s2">&#34;student&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">res</span> <span class="o">=</span> <span class="n">str1</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># title 每个单词的首字母大写</span>
+</span></span><span class="line"><span class="cl"><span class="n">str1</span> <span class="o">=</span> <span class="s2">&#34;student and teacher &#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">res</span> <span class="o">=</span> <span class="n">str1</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">res</span> <span class="o">=</span> <span class="n">str1</span><span class="o">.</span><span class="n">istitle</span><span class="p">()</span>  <span class="c1">#判断是否每个单词首字母大写</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># upper 全大写</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># str1.upper()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># lower 全小写</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># str1.lower()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># swapcase 大小写互换</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># str1.swapcase()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">执行结果：
+</span></span></span><span class="line"><span class="cl"><span class="s1">Student
+</span></span></span><span class="line"><span class="cl"><span class="s1">Student And Teacher 
+</span></span></span><span class="line"><span class="cl"><span class="s1">False
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span></span></span></code></pre></div></div><h2 id="52-统计和查找">5.2 统计和查找</h2>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-chevron-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># count 统计字符串中某个元素的数量</span>
+</span></span><span class="line"><span class="cl"><span class="n">str1</span> <span class="o">=</span> <span class="s2">&#34;Students&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">res</span> <span class="o">=</span> <span class="n">str1</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&#34;S&#34;</span><span class="p">)</span> <span class="c1">#区分大小写，可为字符串</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># find 查找某个字符第一次出现的位置</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># find(&#34;字符串&#34;，开始位置，结束位置) 结束位置取不到，取到之前的一个值。取不到为-1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># index 与 find 功能相同。find找不到返回-1，而index取不到会报错。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">执行结果：
+</span></span></span><span class="line"><span class="cl"><span class="s1">1
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span></span></span></code></pre></div></div><h2 id="53-判断开头结尾">5.3 判断开头、结尾</h2>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-chevron-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># startswith 判断是否以某个字符或字符串为开头</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># startswith(&#39;字符串&#39;，开始位置，结束位置) 返回为True或False</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># endswith 判断是否以某个字符或字符串为结尾</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># endswith(&#39;字符串&#39;，开始位置，结束位置) 返回为True或False</span></span></span></code></pre></div></div><h2 id="54-分割与拼接">5.4 分割与拼接</h2>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-chevron-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># split 按某字符将字符串分割成 列表(默认从左到右按空格分隔)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># split(&#34;字符串&#34;, 切割个数)</span>
+</span></span><span class="line"><span class="cl"><span class="n">str1</span> <span class="o">=</span> <span class="s2">&#34;我_是_憨_憨&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">res</span> <span class="o">=</span> <span class="n">str1</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34;_&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># rsplit 从右往左排列  注意前面有r</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># join 按某字符将列表拼接成字符串(容器类型都可)</span>
+</span></span><span class="line"><span class="cl"><span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;st&#34;</span><span class="p">,</span> <span class="s2">&#34;ud&#34;</span><span class="p">,</span> <span class="s2">&#34;ent&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">res</span> <span class="o">=</span> <span class="s2">&#34;-&#34;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">执行结果：
+</span></span></span><span class="line"><span class="cl"><span class="s1">[&#39;我&#39;, &#39;是_憨_憨&#39;]
+</span></span></span><span class="line"><span class="cl"><span class="s1">st-ud-ent
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span></span></span></code></pre></div></div><h2 id="55去掉与替换">5.5去掉与替换</h2>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-chevron-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># replace 替换字符串(第三个参数选择替换的次数)</span>
+</span></span><span class="line"><span class="cl"><span class="n">str1</span> <span class="o">=</span> <span class="s2">&#34;student&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">res</span> <span class="o">=</span> <span class="n">str1</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&#34;stu&#34;</span><span class="p">,</span><span class="s2">&#34;aaa&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">res</span> <span class="o">=</span> <span class="n">str1</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&#34;t&#34;</span><span class="p">,</span> <span class="s2">&#34;a&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># strip 默认去掉首位两边的空白符</span>
+</span></span><span class="line"><span class="cl"><span class="n">str1</span> <span class="o">=</span> <span class="s2">&#34;</span><span class="se">\r</span><span class="s2"> student </span><span class="se">\t</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">str1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">res</span> <span class="o">=</span> <span class="n">str1</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># lstrip() 只去掉左侧空白符</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># rstrip() 只去掉右侧空白符</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">执行结果：
+</span></span></span><span class="line"><span class="cl"><span class="s1">aaadent
+</span></span></span><span class="line"><span class="cl"><span class="s1">saudent
+</span></span></span><span class="line"><span class="cl"><span class="s1"> student 	 
+</span></span></span><span class="line"><span class="cl"><span class="s1">
+</span></span></span><span class="line"><span class="cl"><span class="s1">student
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span></span></span></code></pre></div></div><h2 id="56-判断类型">5.6 判断类型</h2>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-chevron-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># isspace() 字符串中只包含空白 返回True 否则返回False</span>
+</span></span><span class="line"><span class="cl"><span class="n">res</span> <span class="o">=</span> <span class="s2">&#34;     &#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">isspace</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># isalpha() 字符串是否为纯字母</span>
+</span></span><span class="line"><span class="cl"><span class="n">res</span> <span class="o">=</span> <span class="s2">&#34;abc1&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">isalpha</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="n">res</span> <span class="o">=</span> <span class="s2">&#34;abc&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">isalpha</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="n">res</span> <span class="o">=</span> <span class="s2">&#34;#a&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">isalpha</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># isalnum() 字符串至少一个字符，所有字符都有字母或者数字</span>
+</span></span><span class="line"><span class="cl"><span class="n">res</span> <span class="o">=</span> <span class="s2">&#34;a&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">isalnum</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="n">res</span> <span class="o">=</span> <span class="s2">&#34;1.1&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">isalnum</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="n">res</span> <span class="o">=</span> <span class="s2">&#34;1&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">isalnum</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># isdecimal 检测字符串是否以数字组成，必须是纯数字</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># isdigit() 字符串只包含数字则返回True，否则返回False</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># isnumeric() 字符串只包含数字字符，返回True，否则返回False</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 差别在 汉字数字 罗马数字 byte数字</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">执行结果：
+</span></span></span><span class="line"><span class="cl"><span class="s1">True
+</span></span></span><span class="line"><span class="cl"><span class="s1">False
+</span></span></span><span class="line"><span class="cl"><span class="s1">True
+</span></span></span><span class="line"><span class="cl"><span class="s1">False
+</span></span></span><span class="line"><span class="cl"><span class="s1">True
+</span></span></span><span class="line"><span class="cl"><span class="s1">False
+</span></span></span><span class="line"><span class="cl"><span class="s1">True
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span></span></span></code></pre></div></div><h2 id="57-长度填充">5.7 长度、填充</h2>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-chevron-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">str1</span> <span class="o">=</span> <span class="s2">&#34;student&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># len()计算长度</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">str1</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># center 填充字符串，原字符居中(默认空格填充)</span>
+</span></span><span class="line"><span class="cl"><span class="n">res</span> <span class="o">=</span> <span class="n">str1</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s2">&#34;*&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">执行结果：
+</span></span></span><span class="line"><span class="cl"><span class="s1">7
+</span></span></span><span class="line"><span class="cl"><span class="s1">*student**
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span></span></span></code></pre></div></div><h2 id="58-编码和解码">5.8 编码和解码</h2>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-chevron-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># max 返回字符串编码最大的字母</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># min 返回字符串编码最小的字母</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ord 内置函数，返回汉字或字母的Unicode编码</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># chr 内置函数，给定Unicode编码 返回字符串</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">str1</span> <span class="o">=</span> <span class="s2">&#34;学生&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">str_utf8</span> <span class="o">=</span> <span class="n">str1</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&#34;UTF-8&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">str_gbk</span> <span class="o">=</span> <span class="n">str1</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&#34;GBK&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;URF-8编码：</span><span class="si">{</span><span class="n">str_utf8</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;GBK编码：</span><span class="si">{</span><span class="n">str_gbk</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;URF-8解码：</span><span class="si">{</span><span class="n">str_utf8</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;GBK解码：</span><span class="si">{</span><span class="n">str_gbk</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;GBK&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">执行结果：
+</span></span></span><span class="line"><span class="cl"><span class="s1">URF-8编码：b&#39;</span><span class="se">\xe5\xad\xa6\xe7\x94\x9f</span><span class="s1">&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">GBK编码：b&#39;</span><span class="se">\xd1\xa7\xc9\xfa</span><span class="s1">&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">URF-8解码：学生
+</span></span></span><span class="line"><span class="cl"><span class="s1">GBK解码：学生
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span></span></span></code></pre></div></div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2021-08-05</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/python_%E5%AD%97%E7%AC%A6%E4%B8%B2/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://localhost:1313/python_%E5%AD%97%E7%AC%A6%E4%B8%B2/" data-title="Python_字符串"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://localhost:1313/python_%E5%AD%97%E7%AC%A6%E4%B8%B2/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="http://localhost:1313/python_%E5%AD%97%E7%AC%A6%E4%B8%B2/" data-title="Python_字符串"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://localhost:1313/python_%E5%AD%97%E7%AC%A6%E4%B8%B2/" data-title="Python_字符串"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="http://localhost:1313/python_%E5%AD%97%E7%AC%A6%E4%B8%B2/" data-title="Python_字符串"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/python_%E5%AD%97%E5%85%B8/" class="prev" rel="prev" title="Python_字典"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Python_字典</a>
+            <a href="/python_%E5%B0%81%E8%A3%85/" class="next" rel="next" title="Python_封装">Python_封装<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.144.2">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.0"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">xxxx</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/autocomplete/autocomplete.min.js"></script><script src="/lib/lunr/lunr.min.js"></script><script src="/lib/lazysizes/lazysizes.min.js"></script><script src="/lib/clipboard/clipboard.min.js"></script><script src="/lib/sharer/sharer.min.js"></script><script src="/lib/katex/katex.min.js"></script><script src="/lib/katex/contrib/auto-render.min.js"></script><script src="/lib/katex/contrib/copy-tex.min.js"></script><script src="/lib/katex/contrib/mhchem.min.js"></script><script src="/lib/cookieconsent/cookieconsent.min.js"></script><script>window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.js"></script></body>
+</html>

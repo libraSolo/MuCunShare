@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>日志采集脚本 - 我的新Hugo网站</title><meta name="Description" content="这是我的酷站"><meta property="og:url" content="http://localhost:1313/filebeat-logstash-hadoop-%E8%B8%A9%E5%9D%91%E7%AC%94%E8%AE%B0/">
+  <meta property="og:site_name" content="我的新Hugo网站">
+  <meta property="og:title" content="日志采集脚本">
+  <meta property="og:description" content="filebeat =&gt; logstash =&gt; hadoop 踩坑笔记 Hadoop 和 HDFS 操作 此文关于部署以及go连接部署问题
+GO 连接 Hadoop 注意事项 HDFS 设置时候 确保在 hsdfs-site.xml 文件中,开启dfs.webhdfs.enabled 确保在 core-site.xml 中, 开启hadoop.http.staticuser.user 踩坑: filebeat - type: log enabled: true paths: - /home/*/json.log* tags: [&#34;oss&#34;] output.logstash: hosts: [&#34;192.168.1.56:5044&#34;] loadbalance: false可以直接读取json格式输出到 logstash
+踩坑: go 连接 HDFS 只能查看目录无法查看内容 相关报错:
+dial tcp: lookup vm-fgame70: no such host
+get &#34;http://localhost:9864/webhdfs/v1/oss/2022-09-16-04.log?op=open&amp;user.name=hadoop&amp;namenoderpcaddress=192.168.1.70:9000&amp;buffersize=4096&amp;length=14743&amp;offset=0&#34;: dial tcp [::1]:9864: connectex: no connection could be made because the target machine actively refused it.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-12-01T16:21:57+08:00">
+    <meta property="article:modified_time" content="2022-12-01T16:21:57+08:00">
+    <meta property="og:image" content="http://localhost:1313/logo.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/logo.png">
+  <meta name="twitter:title" content="日志采集脚本">
+  <meta name="twitter:description" content="filebeat =&gt; logstash =&gt; hadoop 踩坑笔记 Hadoop 和 HDFS 操作 此文关于部署以及go连接部署问题
+GO 连接 Hadoop 注意事项 HDFS 设置时候 确保在 hsdfs-site.xml 文件中,开启dfs.webhdfs.enabled 确保在 core-site.xml 中, 开启hadoop.http.staticuser.user 踩坑: filebeat - type: log enabled: true paths: - /home/*/json.log* tags: [&#34;oss&#34;] output.logstash: hosts: [&#34;192.168.1.56:5044&#34;] loadbalance: false可以直接读取json格式输出到 logstash
+踩坑: go 连接 HDFS 只能查看目录无法查看内容 相关报错:
+dial tcp: lookup vm-fgame70: no such host
+get &#34;http://localhost:9864/webhdfs/v1/oss/2022-09-16-04.log?op=open&amp;user.name=hadoop&amp;namenoderpcaddress=192.168.1.70:9000&amp;buffersize=4096&amp;length=14743&amp;offset=0&#34;: dial tcp [::1]:9864: connectex: no connection could be made because the target machine actively refused it.">
+<meta name="application-name" content="我的酷站">
+<meta name="apple-mobile-web-app-title" content="我的酷站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/filebeat-logstash-hadoop-%E8%B8%A9%E5%9D%91%E7%AC%94%E8%AE%B0/" /><link rel="prev" href="http://localhost:1313/2021%E5%B9%B4%E6%9C%AB%E6%80%BB%E7%BB%93/" /><link rel="next" href="http://localhost:1313/2022%E5%B9%B4%E6%9C%AB%E6%80%BB%E7%BB%93/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "日志采集脚本",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/localhost:1313\/filebeat-logstash-hadoop-%E8%B8%A9%E5%9D%91%E7%AC%94%E8%AE%B0\/"
+        },"genre": "posts","wordcount":  153 ,
+        "url": "http:\/\/localhost:1313\/filebeat-logstash-hadoop-%E8%B8%A9%E5%9D%91%E7%AC%94%E8%AE%B0\/","datePublished": "2022-12-01T16:21:57+08:00","dateModified": "2022-12-01T16:21:57+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "木村凉太"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="我的新Hugo网站"></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="我的新Hugo网站"></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">日志采集脚本</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>木村凉太</a></span>&nbsp;<span class="post-category">included in <a href="/categories/bug/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Bug</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-12-01">2022-12-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;153 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#go-连接-hadoop-注意事项">GO 连接 Hadoop 注意事项</a></li>
+    <li><a href="#踩坑-filebeat">踩坑: filebeat</a></li>
+    <li><a href="#踩坑-go-连接-hdfs-只能查看目录无法查看内容">踩坑: go 连接 HDFS 只能查看目录无法查看内容</a></li>
+    <li><a href="#踩坑-logstash输出到udpkafkasqlhadoop">踩坑: logstash输出到udp/kafka/sql/hadoop</a></li>
+    <li><a href="#踩坑-输出到mysql">踩坑: 输出到mysql</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="filebeat--logstash--hadoop-踩坑笔记">filebeat =&gt; logstash =&gt; hadoop 踩坑笔记</h1>
+<h1 id="hadoop-和-hdfs-操作">Hadoop 和 HDFS 操作</h1>
+<p><em><strong>此文关于部署以及go连接部署问题</strong></em></p>
+<h2 id="go-连接-hadoop-注意事项">GO 连接 Hadoop 注意事项</h2>
+<ol>
+<li>HDFS 设置时候 确保在 hsdfs-site.xml 文件中,开启<code>dfs.webhdfs.enabled</code></li>
+<li>确保在 core-site.xml 中, 开启<code>hadoop.http.staticuser.user</code></li>
+</ol>
+<h2 id="踩坑-filebeat">踩坑: filebeat</h2>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-chevron-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="o">-</span> <span class="ss">type</span><span class="p">:</span> <span class="n">log</span>
+</span></span><span class="line"><span class="cl">  <span class="ss">enabled</span><span class="p">:</span> <span class="kp">true</span>
+</span></span><span class="line"><span class="cl">  <span class="ss">paths</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">     <span class="o">-</span> <span class="sr">/home/</span><span class="o">*/</span><span class="n">json</span><span class="o">.</span><span class="n">log</span><span class="o">*</span>
+</span></span><span class="line"><span class="cl">  <span class="ss">tags</span><span class="p">:</span> <span class="o">[</span><span class="s2">&#34;oss&#34;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">output</span><span class="o">.</span><span class="n">logstash</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">  <span class="ss">hosts</span><span class="p">:</span> <span class="o">[</span><span class="s2">&#34;192.168.1.56:5044&#34;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">  <span class="ss">loadbalance</span><span class="p">:</span> <span class="kp">false</span></span></span></code></pre></div></div><p>可以直接读取json格式输出到 logstash</p>
+<h2 id="踩坑-go-连接-hdfs-只能查看目录无法查看内容">踩坑: go 连接 HDFS 只能查看目录无法查看内容</h2>
+<p>相关报错:</p>
+<p><code>dial tcp:  lookup vm-fgame70: no such host</code></p>
+<p><code>get &quot;http://localhost:9864/webhdfs/v1/oss/2022-09-16-04.log?op=open&amp;user.name=hadoop&amp;namenoderpcaddress=192.168.1.70:9000&amp;buffersize=4096&amp;length=14743&amp;offset=0&quot;: dial tcp [::1]:9864: connectex: no connection could be made because the target machine actively refused it.</code></p>
+<p>相关端口拒绝访问</p>
+<p><strong>解决思路:</strong></p>
+<ol>
+<li>查看 hadoop 是否部署成功 &ndash;&gt; 看是否有默认的 hadoop 的web网页</li>
+<li>查看服务器相关端口是否开启</li>
+<li>查看防火墙是否开始</li>
+<li>自定义脚本问题, logstash调用脚本是调用自己有的,然后再调自定义,如果出现同作用的脚本,看是否调用到自己的自定义脚本, 把logstash的对应脚本删除.
+<code>$ sudo rm -rf /usr/share/logstash/vendor/bundle/jruby/2.5.0/gems/logstash-output-webhdfs*</code></li>
+<li>查看NameNode是否成功 &ndash;&gt; 在部署hadoop时,一般可以看到这个是否成功,查相关进程</li>
+<li>查看配置文件 <code>vi /etc/hosts</code> 是否是写的 &ldquo;localhost&rdquo;,此处应go调用时,调用了localhost,出现了问题,应该为服务器地址.如果启动时后</li>
+</ol>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-chevron-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">更改前 hosts:
+</span></span><span class="line"><span class="cl">127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4 vm-fgame70
+</span></span><span class="line"><span class="cl">::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">更改后 hosts:
+</span></span><span class="line"><span class="cl">127.0.0.1   192.168.1.70 localhost.localdomain localhost4 localhost4.localdomain4 vm-fgame70 hadoop
+</span></span><span class="line"><span class="cl">::1         192.168.1.70 localhost.localdomain localhost6 localhost6.localdomain6 hadoop</span></span></code></pre></div></div><p>再次启动 start-hdf.sh 脚本看是否是端口号开启,如图前后对比</p>
+<p>[collapse status=&ldquo;false&rdquo; title=&ldquo;启动图片对比&rdquo;]<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="http://mucunliangtai.com/usr/uploads/2022/09/3307793698.png"
+        data-srcset="http://mucunliangtai.com/usr/uploads/2022/09/3307793698.png, http://mucunliangtai.com/usr/uploads/2022/09/3307793698.png 1.5x, http://mucunliangtai.com/usr/uploads/2022/09/3307793698.png 2x"
+        data-sizes="auto"
+        alt="http://mucunliangtai.com/usr/uploads/2022/09/3307793698.png"
+        title="更改前" /></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="http://mucunliangtai.com/usr/uploads/2022/09/308574443.png"
+        data-srcset="http://mucunliangtai.com/usr/uploads/2022/09/308574443.png, http://mucunliangtai.com/usr/uploads/2022/09/308574443.png 1.5x, http://mucunliangtai.com/usr/uploads/2022/09/308574443.png 2x"
+        data-sizes="auto"
+        alt="http://mucunliangtai.com/usr/uploads/2022/09/308574443.png"
+        title="更改后" /></p>
+<p>[/collapse]</p>
+<p>通过第6个改配置文件,找到问题所在, go可以调用HDFS读取文件.</p>
+<h2 id="踩坑-logstash输出到udpkafkasqlhadoop">踩坑: logstash输出到udp/kafka/sql/hadoop</h2>
+<p>logstash 输入接口仅接受其他数据发送来的数据</p>
+<p>logstash 过滤 filter 其可以通过名称指定插件,过滤自己想要获取的数据</p>
+<p>logstash 输出到目标IP和端口,使目标接受其发送的数据</p>
+<h2 id="踩坑-输出到mysql">踩坑: 输出到mysql</h2>
+<ol>
+<li>输出到mysql中需要有 sql 的表, 可以写一个定时任务脚本来创建sql</li>
+<li>sql的语句</li>
+</ol>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2022-12-01</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/filebeat-logstash-hadoop-%E8%B8%A9%E5%9D%91%E7%AC%94%E8%AE%B0/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://localhost:1313/filebeat-logstash-hadoop-%E8%B8%A9%E5%9D%91%E7%AC%94%E8%AE%B0/" data-title="日志采集脚本"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://localhost:1313/filebeat-logstash-hadoop-%E8%B8%A9%E5%9D%91%E7%AC%94%E8%AE%B0/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="http://localhost:1313/filebeat-logstash-hadoop-%E8%B8%A9%E5%9D%91%E7%AC%94%E8%AE%B0/" data-title="日志采集脚本"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://localhost:1313/filebeat-logstash-hadoop-%E8%B8%A9%E5%9D%91%E7%AC%94%E8%AE%B0/" data-title="日志采集脚本"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="http://localhost:1313/filebeat-logstash-hadoop-%E8%B8%A9%E5%9D%91%E7%AC%94%E8%AE%B0/" data-title="日志采集脚本"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2021%E5%B9%B4%E6%9C%AB%E6%80%BB%E7%BB%93/" class="prev" rel="prev" title="2021年末总结"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>2021年末总结</a>
+            <a href="/2022%E5%B9%B4%E6%9C%AB%E6%80%BB%E7%BB%93/" class="next" rel="next" title="2022年末总结">2022年末总结<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.144.2">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.0"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">xxxx</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/autocomplete/autocomplete.min.js"></script><script src="/lib/lunr/lunr.min.js"></script><script src="/lib/lazysizes/lazysizes.min.js"></script><script src="/lib/clipboard/clipboard.min.js"></script><script src="/lib/sharer/sharer.min.js"></script><script src="/lib/katex/katex.min.js"></script><script src="/lib/katex/contrib/auto-render.min.js"></script><script src="/lib/katex/contrib/copy-tex.min.js"></script><script src="/lib/katex/contrib/mhchem.min.js"></script><script src="/lib/cookieconsent/cookieconsent.min.js"></script><script>window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.js"></script></body>
+</html>

@@ -1,7 +1,7 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Tags - Tag - 我的新Hugo网站</title>
-        <link>http://localhost:53459/tags/</link>
+        <link>http://localhost:1313/tags/</link>
         <description>Tags - Tag - 我的新Hugo网站</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><atom:link href="http://localhost:53459/tags/" rel="self" type="application/rss+xml" /></channel>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><atom:link href="http://localhost:1313/tags/" rel="self" type="application/rss+xml" /></channel>
 </rss>

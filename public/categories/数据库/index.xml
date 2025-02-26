@@ -1,0 +1,172 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>数据库 - Category - 我的新Hugo网站</title>
+        <link>http://localhost:1313/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+        <description>数据库 - Category - 我的新Hugo网站</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 02 Sep 2024 16:21:57 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="self" type="application/rss+xml" /><item>
+    <title>数据库_Redis</title>
+    <link>http://localhost:1313/%E6%95%B0%E6%8D%AE%E5%BA%93_redis/</link>
+    <pubDate>Mon, 02 Sep 2024 16:21:57 &#43;0800</pubDate>
+    <author>木村凉太</author>
+    <guid>http://localhost:1313/%E6%95%B0%E6%8D%AE%E5%BA%93_redis/</guid>
+    <description><![CDATA[<h1 id="数据库_redis">数据库_Redis</h1>
+<h1 id="redis">Redis</h1>
+<p>Redis 是一个开源的内存数据储存系统，它可以用于数据库、缓存和消息中间件。</p>
+<h2 id="优点">优点</h2>
+<ol>
+<li>高性能缓存</li>
+<li>数据持久化</li>
+<li>分布式缓存</li>
+<li>发布订阅消息系统</li>
+</ol>
+<h2 id="数据类型">数据类型</h2>
+<ul>
+<li>String</li>
+<li>Hash</li>
+<li>List</li>
+<li>Set</li>
+<li>Zset (有序集合)</li>
+</ul>
+<p>新增</p>
+<ul>
+<li>BitMap</li>
+<li>HyperLogLog</li>
+<li>GEO</li>
+<li>Strean</li>
+</ul>
+<h2 id="过期时间">过期时间</h2>
+<p></p>
+<h3 id="过期机制的思路">过期机制的思路</h3>
+<ul>
+<li>定时删除：计时器，到期删除。</li>
+<li>延迟队列：使用一个延迟队列，从中取出来这个对象时，就已经过期，可以删除。</li>
+<li>懒惰删除：每次使用时检查是否过期。</li>
+<li>定期删除：每隔一段时间就遍历对象，找到过期并删除。</li>
+</ul>
+<p></p>
+<h3 id="qa为什么不立刻删除">QA:为什么不立刻删除？</h3>
+<p>理论上来说，并不是做不到，只不过代价比较高昂不值得而已。
+最简单的做法就是使用定时器，但是定时器本身开销太大，还得考虑在更新过期时间的时候重置定时器。另外一种思路就是使用延迟队列，但是延迟队列本身开销也很大，修改过期时间也要调整延迟队列，还要引入大量的并发控制。
+综合来看，并不值得。而定期删除和懒惰删除的策略虽然看上去可能浪费内存，但是这个浪费很少，并且对响应时间也没那么大的影响。</p>
+<h3 id="qa-redis-是怎么控制定期删除开销的">QA: Redis 是怎么控制定期删除开销的？</h3>
+<p>在每一个定期删除循环中，Redis 会遍历 DB。如果这个 DB 完全没有设置了过期时间的 key，那就直接跳过。否则就针对这个 DB 抽一批 key，如果 key 已经过期，就直接删除。
+如果在这一批 key 里面，过期的比例太低，那么就会中断循环，遍历下一个 DB。如果执行时间超过了阈值，也会中断。不过这个中断是整个中断，下一次定期删除的时候会从当前 DB 的下一个继续遍历。
+总的来说，<strong>Redis 是通过控制执行定期删除循环时间来控制开销</strong> ，这样可以在服务正常请求和清理过期 key 之间取得平衡。</p>]]></description>
+</item>
+<item>
+    <title>数据库_MySQL</title>
+    <link>http://localhost:1313/%E6%95%B0%E6%8D%AE%E5%BA%93_mysql%E9%97%AE%E9%A2%98/</link>
+    <pubDate>Sun, 01 Sep 2024 16:21:57 &#43;0800</pubDate>
+    <author>木村凉太</author>
+    <guid>http://localhost:1313/%E6%95%B0%E6%8D%AE%E5%BA%93_mysql%E9%97%AE%E9%A2%98/</guid>
+    <description><![CDATA[<h1 id="数据库_mysql">数据库_MySQL</h1>
+<h1 id="索引">索引</h1>
+<p></p>
+<h2 id="索引的分类">索引的分类</h2>
+<ul>
+<li>按照索引结构
+<ol>
+<li>B 树索引
+<ul>
+<li>使用 B / B+ 树结构，高效的查找、插入和删除。</li>
+<li>适用于范围查询。</li>
+</ul>
+</li>
+<li>哈希索引
+<ul>
+<li>使用哈希表实现，查找速度很快，不支持范围查询。</li>
+<li>适用于查找特定的值。</li>
+</ul>
+</li>
+<li>位图索引
+<ul>
+<li>使用位图表示数据，适用于不同值较少的列</li>
+<li>适用于大规模查询。</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>按照索引的使用方式
+<ol>
+<li>主键索引
+<ul>
+<li>基于表的主键创建的索引，自动创建，确保主键唯一性。</li>
+</ul>
+</li>
+<li>唯一索引
+<ul>
+<li>确保索引列中的值唯一，不能包含重复值。</li>
+<li>可以用于非主键列。</li>
+</ul>
+</li>
+<li>普通索引
+<ul>
+<li>没有唯一性，可以包含重复值。</li>
+<li>增加查询速度，不保证唯一性。</li>
+</ul>
+</li>
+<li>复合索引
+<ul>
+<li>由多个列组成的索引，支持多列查询。</li>
+<li>提高查询的复杂性。</li>
+</ul>
+</li>
+<li>前缀索引
+<ul>
+<li>包含某个列的前一部分。</li>
+<li>适用于储存字符/字节的列。</li>
+</ul>
+</li>
+<li>覆盖索引
+某个索引包含某个查询的所有列。</li>
+</ol>
+</li>
+<li>按照储存方式
+<ol>
+<li>聚集索引
+<ul>
+<li>数据存储顺序与索引顺序相同，表中的数据行按照索引的顺序排列。</li>
+<li>每个表只能有一个聚集索引，因为数据行只能按一种方式存储。</li>
+</ul>
+</li>
+<li>非聚集索引
+<ul>
+<li>索引与数据存储分开，索引包含指向数据行的指针。</li>
+<li>一个表可以有多个非聚集索引。</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>特殊类型
+<ol>
+<li>全文索引
+<ul>
+<li>专门用于文本搜索，支持对文本数据进行复杂查询。</li>
+<li>常用于搜索引擎和内容管理系统。</li>
+</ul>
+</li>
+<li>空间索引
+<ul>
+<li>用于地理信息系统（GIS）中的空间数据查询。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="索引的代价">索引的代价</h2>
+<ol>
+<li>索引本身需要存储起来，消耗磁盘空间。</li>
+<li>运行时，索引会加载到内存中，消耗内存空间。</li>
+<li>增删改的时候，同步维护索引，引入额外的消耗。</li>
+</ol>
+<h2 id="b-树的优势">B+ 树的优势</h2>
+<ol>
+<li>B+ 树的高度更低，所以查询耗时更少，性能更好。</li>
+<li>B+ 树的叶子节点被串联起来了，更适合范围查询。</li>
+<li>B+ 树的非叶子节点没有存放数据，所以可以放在<strong>内存</strong>中，查询性能更好。</li>
+</ol>
+<h2 id="qa数据库索引为什么用-b-树">QA:数据库索引为什么用 B+ 树</h2>
+<p>与 B+ 树相比，<strong>平衡二叉树</strong>、<strong>红黑树</strong>在同等数据量下，高度更高，性能更差，而且它们会频繁执行再平衡过程，来保证树形结构平衡。</p>]]></description>
+</item>
+</channel>
+</rss>

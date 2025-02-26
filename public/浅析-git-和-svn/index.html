@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>浅析 Git 和 SVN - 我的新Hugo网站</title><meta name="Description" content="这是我的酷站"><meta property="og:url" content="http://localhost:1313/%E6%B5%85%E6%9E%90-git-%E5%92%8C-svn/">
+  <meta property="og:site_name" content="我的新Hugo网站">
+  <meta property="og:title" content="浅析 Git 和 SVN">
+  <meta property="og:description" content="浅析 Git 和 SVN 浅析 Git 和 SVN Git vs SVN Git 是分布式 ( 可以离线工作) ， SVN 是集中式 ( 需要联网工作 ) 。
+Git 有本地分支且 Git 分支是 ‘ 指针指向某次提交 ’ ( 分支廉价 )
+SVN 无本地分支且 SVN 分支是 ‘ 拷贝的目录 ’ ( 分支昂贵 )
+SVN 核心思维 SVN = 版本控制 &#43; 备份服务器
+SVN 是集中版本控制工具，多用户共享同一资源，并且可以对资源进行修改和更新。Repository 收到用户 commit 时，会记录更改资源的人和版本的更新，所以可以恢复到之前记录的修改点 ( 回滚版本 )
+SVN 操作流程">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-09-03T16:21:57+08:00">
+    <meta property="article:modified_time" content="2024-09-03T16:21:57+08:00">
+    <meta property="og:image" content="http://localhost:1313/logo.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/logo.png">
+  <meta name="twitter:title" content="浅析 Git 和 SVN">
+  <meta name="twitter:description" content="浅析 Git 和 SVN 浅析 Git 和 SVN Git vs SVN Git 是分布式 ( 可以离线工作) ， SVN 是集中式 ( 需要联网工作 ) 。
+Git 有本地分支且 Git 分支是 ‘ 指针指向某次提交 ’ ( 分支廉价 )
+SVN 无本地分支且 SVN 分支是 ‘ 拷贝的目录 ’ ( 分支昂贵 )
+SVN 核心思维 SVN = 版本控制 &#43; 备份服务器
+SVN 是集中版本控制工具，多用户共享同一资源，并且可以对资源进行修改和更新。Repository 收到用户 commit 时，会记录更改资源的人和版本的更新，所以可以恢复到之前记录的修改点 ( 回滚版本 )
+SVN 操作流程">
+<meta name="application-name" content="我的酷站">
+<meta name="apple-mobile-web-app-title" content="我的酷站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/%E6%B5%85%E6%9E%90-git-%E5%92%8C-svn/" /><link rel="prev" href="http://localhost:1313/%E6%95%B0%E6%8D%AE%E5%BA%93_redis/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "浅析 Git 和 SVN",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/localhost:1313\/%E6%B5%85%E6%9E%90-git-%E5%92%8C-svn\/"
+        },"genre": "posts","wordcount":  116 ,
+        "url": "http:\/\/localhost:1313\/%E6%B5%85%E6%9E%90-git-%E5%92%8C-svn\/","datePublished": "2024-09-03T16:21:57+08:00","dateModified": "2024-09-03T16:21:57+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "木村凉太"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="我的新Hugo网站"></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="我的新Hugo网站"></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">浅析 Git 和 SVN</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>木村凉太</a></span>&nbsp;<span class="post-category">included in <a href="/categories/%E7%AC%94%E8%AE%B0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>笔记</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-09-03">2024-09-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;116 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#git-vs-svn"><strong>Git vs SVN</strong></a></li>
+    <li><a href="#svn-核心思维"><strong>SVN 核心思维</strong></a>
+      <ul>
+        <li><a href="#svn-操作流程"><strong>SVN 操作流程</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="浅析-git-和-svn">浅析 Git 和 SVN</h1>
+<h1 id="浅析-git-和-svn-1"><strong>浅析 Git 和 SVN</strong></h1>
+<h2 id="git-vs-svn"><strong>Git vs SVN</strong></h2>
+<p><strong><strong>Git 是分布式</strong></strong> ( 可以离线工作) ， <strong>SVN 是集中式</strong> ( 需要联网工作 ) 。</p>
+<p><strong><strong>Git 有本地分支且 Git 分支是 ‘ 指针指向某次提交 ’</strong></strong> ( 分支廉价 )</p>
+<p><strong><strong>SVN 无本地分支且 SVN 分支是 ‘ 拷贝的目录 ’</strong></strong> ( 分支昂贵 )</p>
+<hr>
+<h2 id="svn-核心思维"><strong>SVN 核心思维</strong></h2>
+<p><strong>SVN = 版本控制 + 备份服务器</strong></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="http://mucunliangtai.com/usr/uploads/2021/12/2819219464.png"
+        data-srcset="http://mucunliangtai.com/usr/uploads/2021/12/2819219464.png, http://mucunliangtai.com/usr/uploads/2021/12/2819219464.png 1.5x, http://mucunliangtai.com/usr/uploads/2021/12/2819219464.png 2x"
+        data-sizes="auto"
+        alt="http://mucunliangtai.com/usr/uploads/2021/12/2819219464.png"
+        title="SVN" /></p>
+<p>SVN 是集中版本控制工具，多用户共享<strong>同一</strong>资源，并且可以对资源进行修改和更新。Repository 收到用户 commit 时，会记录更改资源的人和版本的更新，所以可以<strong>恢复到之前记录的修改点</strong> ( 回滚版本 )</p>
+<hr>
+<h3 id="svn-操作流程"><strong>SVN 操作流程</strong></h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="http://mucunliangtai.com/usr/uploads/2021/12/3798946072.png"
+        data-srcset="http://mucunliangtai.com/usr/uploads/2021/12/3798946072.png, http://mucunliangtai.com/usr/uploads/2021/12/3798946072.png 1.5x, http://mucunliangtai.com/usr/uploads/2021/12/3798946072.png 2x"
+        data-sizes="auto"
+        alt="http://mucunliangtai.com/usr/uploads/2021/12/3798946072.png"
+        title="流程" /></p>
+<ol>
+<li>
+<p><strong>Checkout :</strong></p>
+</li>
+<li>
+<p><strong>Checkout 是 Workspace 的初始化，通常是根目录递归 checkout</strong>
+<em><strong>Rule : 一个 Workspace 原则</strong></em></p>
+</li>
+<li>
+<p><strong>Update</strong>
+update 的对象是本地的 Workspace。服务器上有了更新的代码，或者本地缺失、损害，可以 update 可以自动判断并更新( 最新版 )</p>
+</li>
+<li>
+<p><strong>Commit</strong>
+<strong>commit 的对象是整个 Repository</strong>。<strong>当本地修改后，尽快修改服务器代码，对团队影响很大</strong></p>
+<ul>
+<li><em><strong>Rule : 完整 Issue 提交原则</strong></em></li>
+<li><em><strong>Rule : 提交前无 bug 原则</strong></em></li>
+<li><em><strong>Rule : 多用户协调逻辑提前确认原则</strong></em></li>
+<li><em><strong>Rule : 提交完整文档原则</strong></em></li>
+<li><em><strong>Rule : 提交添加日志原则</strong></em></li>
+</ul>
+</li>
+<li>
+<p><strong>锁定 - 修改 - 解锁</strong></p>
+<ul>
+<li>一定时间内 Repository 的一个文件仅允许一个人修改，直到解锁。</li>
+<li>锁定 **Get lock **，解锁 <strong>Release lock</strong></li>
+</ul>
+</li>
+</ol>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2024-09-03</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/%E6%B5%85%E6%9E%90-git-%E5%92%8C-svn/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://localhost:1313/%E6%B5%85%E6%9E%90-git-%E5%92%8C-svn/" data-title="浅析 Git 和 SVN"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://localhost:1313/%E6%B5%85%E6%9E%90-git-%E5%92%8C-svn/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="http://localhost:1313/%E6%B5%85%E6%9E%90-git-%E5%92%8C-svn/" data-title="浅析 Git 和 SVN"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://localhost:1313/%E6%B5%85%E6%9E%90-git-%E5%92%8C-svn/" data-title="浅析 Git 和 SVN"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="http://localhost:1313/%E6%B5%85%E6%9E%90-git-%E5%92%8C-svn/" data-title="浅析 Git 和 SVN"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/%E6%95%B0%E6%8D%AE%E5%BA%93_redis/" class="prev" rel="prev" title="数据库_Redis"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>数据库_Redis</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.144.2">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.0"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">xxxx</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/autocomplete/autocomplete.min.js"></script><script src="/lib/lunr/lunr.min.js"></script><script src="/lib/lazysizes/lazysizes.min.js"></script><script src="/lib/clipboard/clipboard.min.js"></script><script src="/lib/sharer/sharer.min.js"></script><script src="/lib/katex/katex.min.js"></script><script src="/lib/katex/contrib/auto-render.min.js"></script><script src="/lib/katex/contrib/copy-tex.min.js"></script><script src="/lib/katex/contrib/mhchem.min.js"></script><script src="/lib/cookieconsent/cookieconsent.min.js"></script><script>window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.js"></script></body>
+</html>

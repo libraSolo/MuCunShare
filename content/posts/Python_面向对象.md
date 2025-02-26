@@ -1,11 +1,11 @@
-+++
-date = '2021-8-12T16:21:57+08:00'
-draft = false
-title = 'Python_面向对象'
-author = '木村凉太'
-categories = 'Python'
-hiddenFromHomePage = true 
-+++
+---
+date : 2021-08-12T16:21:57+08:00
+draft : false
+title : 'Python_面向对象'
+author : '木村凉太'
+categories : ['Python']
+hiddenFromHomePage : true 
+---
 
 # Python_面向对象
 

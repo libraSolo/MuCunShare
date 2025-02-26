@@ -1,0 +1,28 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>笔记 - Category - 我的新Hugo网站</title>
+        <link>http://localhost:1313/categories/%E7%AC%94%E8%AE%B0/</link>
+        <description>笔记 - Category - 我的新Hugo网站</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 03 Sep 2024 16:21:57 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/categories/%E7%AC%94%E8%AE%B0/" rel="self" type="application/rss+xml" /><item>
+    <title>浅析 Git 和 SVN</title>
+    <link>http://localhost:1313/%E6%B5%85%E6%9E%90-git-%E5%92%8C-svn/</link>
+    <pubDate>Tue, 03 Sep 2024 16:21:57 &#43;0800</pubDate>
+    <author>木村凉太</author>
+    <guid>http://localhost:1313/%E6%B5%85%E6%9E%90-git-%E5%92%8C-svn/</guid>
+    <description><![CDATA[<h1 id="浅析-git-和-svn">浅析 Git 和 SVN</h1>
+<h1 id="浅析-git-和-svn-1"><strong>浅析 Git 和 SVN</strong></h1>
+<h2 id="git-vs-svn"><strong>Git vs SVN</strong></h2>
+<p><strong><strong>Git 是分布式</strong></strong> ( 可以离线工作) ， <strong>SVN 是集中式</strong> ( 需要联网工作 ) 。</p>
+<p><strong><strong>Git 有本地分支且 Git 分支是 ‘ 指针指向某次提交 ’</strong></strong> ( 分支廉价 )</p>
+<p><strong><strong>SVN 无本地分支且 SVN 分支是 ‘ 拷贝的目录 ’</strong></strong> ( 分支昂贵 )</p>
+<hr>
+<h2 id="svn-核心思维"><strong>SVN 核心思维</strong></h2>
+<p><strong>SVN = 版本控制 + 备份服务器</strong></p>
+<p></p>
+<p>SVN 是集中版本控制工具，多用户共享<strong>同一</strong>资源，并且可以对资源进行修改和更新。Repository 收到用户 commit 时，会记录更改资源的人和版本的更新，所以可以<strong>恢复到之前记录的修改点</strong> ( 回滚版本 )</p>
+<hr>
+<h3 id="svn-操作流程"><strong>SVN 操作流程</strong></h3>
+<p></p>]]></description>
+</item>
+</channel>
+</rss>

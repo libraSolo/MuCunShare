@@ -1,11 +1,11 @@
-+++
-date = '2024-8-4T16:21:57+08:00'
-draft = false
-title = 'Go并发_Semaphore'
-author = '木村凉太'
-categories = 'Golang'
-hiddenFromHomePage = true 
-+++
+---
+date : 2024-08-04T16:21:57+08:00
+draft : false
+title : 'Go并发_Semaphore'
+author : '木村凉太'
+categories : ['Golang']
+hiddenFromHomePage : true 
+---
 
 
 # Go并发_Semaphore

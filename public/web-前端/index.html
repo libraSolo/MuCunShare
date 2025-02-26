@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Web 前端 - 我的新Hugo网站</title><meta name="Description" content="这是我的酷站"><meta property="og:url" content="http://localhost:1313/web-%E5%89%8D%E7%AB%AF/">
+  <meta property="og:site_name" content="我的新Hugo网站">
+  <meta property="og:title" content="Web 前端">
+  <meta property="og:description" content="Web 前端 Web 前端 HTML ：Web 主要结构及内容 CSS ：Web 主要表现及样式 Javascript：Web 主要行为及交互 HTML HTML 的概念 HTML ： 是一种超文本编辑语言。
+标志 ： 一般为成对出现的尖角号。例如：&lt;span&gt; &lt;/span&gt;
+扩充：
+网页 ： 本质是一个文件，后缀为 htm 或 html ;
+浏览器： 解析网页文件的软件
+HTML 的基本结构 &lt;!DOCTYPE html&gt;&lt;!-- 文档类型声明，告知浏览器使用那种HTML版本解析 --&gt; &lt;html&gt;&lt;!-- 文档开始标记 --&gt; &lt;head&gt;&lt;!-- 头部，不会在浏览器的文档窗口显示，解析其他 --&gt; &lt;meta charset=&#34;utf-8&#34;&gt; &lt;title&gt;&lt;/title&gt;&lt;!-- 标题 --&gt; &lt;/head&gt; &lt;body&gt;&lt;!-- 网页主要内容显示 --&gt; &lt;/body&gt; &lt;/html&gt;HTML 的部分标签 &lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt; &lt;!-- 指定编码格式 --&gt; &lt;meta charset=&#34;utf-8&#34;&gt; &lt;!-- 搜索后的描述信息--&gt; &lt;meta name=&#34;descriprion&#34; content=&#34;这是搜索后的小段描述信息&#34;&gt; &lt;!-- 搜索后的关键词 --&gt; &lt;meta name=&#34;keywords&#34; content=&#34;描述，关键词&#34; /&gt; &lt;!-- X秒后跳转到其他网页 --&gt; &lt;meta http-equiv=&#34;refresh&#34; content=&#34;5;url=http://www.mucunliangtai.com&#34;&gt; &lt;title&gt;网页标题&lt;/title&gt; &lt;!-- 添加收藏夹图标--&gt; &lt;link rel=&#39;shortcut icon&#39; href=&#34;XX.ico&#34; /&gt; &lt;/head&gt; &lt;body&gt; &lt;!-- div体现页面布局--&gt; &lt;div align=&#34;center&#34;&gt; &lt;!-- width 一般不用固定尺寸用百分比动态调整 --&gt; &lt;img src=&#34;XX.png&#34; width=&#34;300&#34; title=&#34;图片名字&#34; alt=&#34;加载失败时，显示的文字&#34; /&gt; &lt;/div&gt; &lt;!-- 列表标签 --&gt; &lt;!-- 无序列表 type 决定了无序列表前面的小圆圈--&gt; &lt;ul type=&#34;circle&#34;&gt; &lt;li&gt;无序列表1&lt;/li&gt; &lt;li&gt;无序列表2&lt;/li&gt; &lt;/ul&gt; &lt;!-- 有序列表 --&gt; &lt;ol type=&#34;1&#34;&gt; &lt;li&gt;无序列表1&lt;/li&gt; &lt;li&gt;无序列表2&lt;/li&gt; &lt;/ol&gt; &lt;!-- 自定义列表 --&gt; &lt;dl&gt; &lt;dt&gt;Q1&lt;/dt&gt; &lt;dd&gt;A1&lt;/dd&gt; &lt;dt&gt;Q2&lt;/dt&gt; &lt;dd&gt;A2&lt;/dd&gt; &lt;/dl&gt; &lt;!-- 表格标签 --&gt; &lt;table border=&#34;1&#34; cellpadding=&#34;20&#34; cellspacing=&#34;5&#34;&gt; &lt;caption&gt; 表格标题 &lt;/caption&gt; &lt;thead&gt; &lt;tr&gt; &lt;th colspan=&#34;2&#34;&gt;H5写法 横向合并&lt;/th&gt; &lt;/tr&gt; &lt;/thead&gt; &lt;tbody&gt; &lt;tr&gt; &lt;td&gt;其他写法&lt;/td&gt; &lt;td rowspan=&#34;2&#34;&gt;纵向合并&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt; &lt;td&gt;其他写法&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;/body&gt; &lt;/html&gt;效果展示：">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2021-09-01T16:21:57+08:00">
+    <meta property="article:modified_time" content="2021-09-01T16:21:57+08:00">
+    <meta property="og:image" content="http://localhost:1313/logo.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/logo.png">
+  <meta name="twitter:title" content="Web 前端">
+  <meta name="twitter:description" content="Web 前端 Web 前端 HTML ：Web 主要结构及内容 CSS ：Web 主要表现及样式 Javascript：Web 主要行为及交互 HTML HTML 的概念 HTML ： 是一种超文本编辑语言。
+标志 ： 一般为成对出现的尖角号。例如：&lt;span&gt; &lt;/span&gt;
+扩充：
+网页 ： 本质是一个文件，后缀为 htm 或 html ;
+浏览器： 解析网页文件的软件
+HTML 的基本结构 &lt;!DOCTYPE html&gt;&lt;!-- 文档类型声明，告知浏览器使用那种HTML版本解析 --&gt; &lt;html&gt;&lt;!-- 文档开始标记 --&gt; &lt;head&gt;&lt;!-- 头部，不会在浏览器的文档窗口显示，解析其他 --&gt; &lt;meta charset=&#34;utf-8&#34;&gt; &lt;title&gt;&lt;/title&gt;&lt;!-- 标题 --&gt; &lt;/head&gt; &lt;body&gt;&lt;!-- 网页主要内容显示 --&gt; &lt;/body&gt; &lt;/html&gt;HTML 的部分标签 &lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt; &lt;!-- 指定编码格式 --&gt; &lt;meta charset=&#34;utf-8&#34;&gt; &lt;!-- 搜索后的描述信息--&gt; &lt;meta name=&#34;descriprion&#34; content=&#34;这是搜索后的小段描述信息&#34;&gt; &lt;!-- 搜索后的关键词 --&gt; &lt;meta name=&#34;keywords&#34; content=&#34;描述，关键词&#34; /&gt; &lt;!-- X秒后跳转到其他网页 --&gt; &lt;meta http-equiv=&#34;refresh&#34; content=&#34;5;url=http://www.mucunliangtai.com&#34;&gt; &lt;title&gt;网页标题&lt;/title&gt; &lt;!-- 添加收藏夹图标--&gt; &lt;link rel=&#39;shortcut icon&#39; href=&#34;XX.ico&#34; /&gt; &lt;/head&gt; &lt;body&gt; &lt;!-- div体现页面布局--&gt; &lt;div align=&#34;center&#34;&gt; &lt;!-- width 一般不用固定尺寸用百分比动态调整 --&gt; &lt;img src=&#34;XX.png&#34; width=&#34;300&#34; title=&#34;图片名字&#34; alt=&#34;加载失败时，显示的文字&#34; /&gt; &lt;/div&gt; &lt;!-- 列表标签 --&gt; &lt;!-- 无序列表 type 决定了无序列表前面的小圆圈--&gt; &lt;ul type=&#34;circle&#34;&gt; &lt;li&gt;无序列表1&lt;/li&gt; &lt;li&gt;无序列表2&lt;/li&gt; &lt;/ul&gt; &lt;!-- 有序列表 --&gt; &lt;ol type=&#34;1&#34;&gt; &lt;li&gt;无序列表1&lt;/li&gt; &lt;li&gt;无序列表2&lt;/li&gt; &lt;/ol&gt; &lt;!-- 自定义列表 --&gt; &lt;dl&gt; &lt;dt&gt;Q1&lt;/dt&gt; &lt;dd&gt;A1&lt;/dd&gt; &lt;dt&gt;Q2&lt;/dt&gt; &lt;dd&gt;A2&lt;/dd&gt; &lt;/dl&gt; &lt;!-- 表格标签 --&gt; &lt;table border=&#34;1&#34; cellpadding=&#34;20&#34; cellspacing=&#34;5&#34;&gt; &lt;caption&gt; 表格标题 &lt;/caption&gt; &lt;thead&gt; &lt;tr&gt; &lt;th colspan=&#34;2&#34;&gt;H5写法 横向合并&lt;/th&gt; &lt;/tr&gt; &lt;/thead&gt; &lt;tbody&gt; &lt;tr&gt; &lt;td&gt;其他写法&lt;/td&gt; &lt;td rowspan=&#34;2&#34;&gt;纵向合并&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt; &lt;td&gt;其他写法&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;/body&gt; &lt;/html&gt;效果展示：">
+<meta name="application-name" content="我的酷站">
+<meta name="apple-mobile-web-app-title" content="我的酷站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/web-%E5%89%8D%E7%AB%AF/" /><link rel="prev" href="http://localhost:1313/python%E6%89%A9%E5%B1%95_%E5%8F%98%E9%87%8F/" /><link rel="next" href="http://localhost:1313/%E5%8A%9B%E6%89%A3%E7%83%AD%E6%A6%9C100%E7%AE%97%E6%B3%95/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Web 前端",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/localhost:1313\/web-%E5%89%8D%E7%AB%AF\/"
+        },"genre": "posts","wordcount":  292 ,
+        "url": "http:\/\/localhost:1313\/web-%E5%89%8D%E7%AB%AF\/","datePublished": "2021-09-01T16:21:57+08:00","dateModified": "2021-09-01T16:21:57+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "木村凉太"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="我的新Hugo网站"></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="我的新Hugo网站"></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Web 前端</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>木村凉太</a></span>&nbsp;<span class="post-category">included in <a href="/categories/web/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Web</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-09-01">2021-09-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;292 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#html">HTML</a>
+      <ul>
+        <li><a href="#html-的概念">HTML 的概念</a></li>
+        <li><a href="#html-的基本结构">HTML 的基本结构</a></li>
+        <li><a href="#html-的部分标签">HTML 的部分标签</a></li>
+        <li><a href="#html-表单">HTML 表单</a></li>
+        <li><a href="#超链接标签">超链接标签</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="web-前端">Web 前端</h1>
+<h1 id="web-前端-1">Web 前端</h1>
+<ul>
+<li>HTML ：Web 主要结构及内容</li>
+<li>CSS ：Web 主要表现及样式</li>
+<li>Javascript：Web 主要行为及交互</li>
+</ul>
+<h2 id="html">HTML</h2>
+<h3 id="html-的概念">HTML 的概念</h3>
+<p><strong>HTML ：</strong> 是一种超文本编辑语言。</p>
+<p><strong>标志 ：</strong> 一般为成对出现的尖角号。例如：<code>&lt;span&gt;  &lt;/span&gt;</code></p>
+<p>扩充：</p>
+<p><strong>网页 ：</strong> 本质是一个文件，后缀为 htm 或 html ;</p>
+<p><strong>浏览器：</strong> 解析网页文件的软件</p>
+<h3 id="html-的基本结构">HTML 的基本结构</h3>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-chevron-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="cp">&lt;!DOCTYPE html&gt;</span><span class="c">&lt;!-- 文档类型声明，告知浏览器使用那种HTML版本解析 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span><span class="c">&lt;!-- 文档开始标记 --&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span><span class="c">&lt;!-- 头部，不会在浏览器的文档窗口显示，解析其他 --&gt;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;utf-8&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;&lt;/</span><span class="nt">title</span><span class="p">&gt;</span><span class="c">&lt;!-- 标题 --&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span><span class="c">&lt;!-- 网页主要内容显示 --&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span></span></span></code></pre></div></div><h3 id="html-的部分标签">HTML 的部分标签</h3>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-chevron-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">		<span class="c">&lt;!-- 指定编码格式 --&gt;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;utf-8&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">		<span class="c">&lt;!-- 搜索后的描述信息--&gt;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;descriprion&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;这是搜索后的小段描述信息&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">		<span class="c">&lt;!-- 搜索后的关键词 --&gt;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;keywords&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;描述，关键词&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">		<span class="c">&lt;!-- X秒后跳转到其他网页 --&gt;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&#34;refresh&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;5;url=http://www.mucunliangtai.com&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>网页标题<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="c">&lt;!-- 添加收藏夹图标--&gt;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#39;shortcut icon&#39;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;XX.ico&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">		<span class="c">&lt;!-- div体现页面布局--&gt;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">&lt;</span><span class="nt">div</span> <span class="na">align</span><span class="o">=</span><span class="s">&#34;center&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">			<span class="c">&lt;!-- width 一般不用固定尺寸用百分比动态调整 --&gt;</span>
+</span></span><span class="line"><span class="cl">			<span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;XX.png&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;300&#34;</span> <span class="na">title</span><span class="o">=</span><span class="s">&#34;图片名字&#34;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&#34;加载失败时，显示的文字&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="c">&lt;!-- 列表标签 --&gt;</span>
+</span></span><span class="line"><span class="cl">		<span class="c">&lt;!-- 无序列表 type 决定了无序列表前面的小圆圈--&gt;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">&lt;</span><span class="nt">ul</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;circle&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">			<span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>无序列表1<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">			<span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>无序列表2<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">		<span class="c">&lt;!-- 有序列表 --&gt;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">&lt;</span><span class="nt">ol</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;1&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">			<span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>无序列表1<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">			<span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>无序列表2<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">&lt;/</span><span class="nt">ol</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">		<span class="c">&lt;!-- 自定义列表 --&gt;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">&lt;</span><span class="nt">dl</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">			<span class="p">&lt;</span><span class="nt">dt</span><span class="p">&gt;</span>Q1<span class="p">&lt;/</span><span class="nt">dt</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">			<span class="p">&lt;</span><span class="nt">dd</span><span class="p">&gt;</span>A1<span class="p">&lt;/</span><span class="nt">dd</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">			<span class="p">&lt;</span><span class="nt">dt</span><span class="p">&gt;</span>Q2<span class="p">&lt;/</span><span class="nt">dt</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">			<span class="p">&lt;</span><span class="nt">dd</span><span class="p">&gt;</span>A2<span class="p">&lt;/</span><span class="nt">dd</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">&lt;/</span><span class="nt">dl</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="c">&lt;!-- 表格标签 --&gt;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">&lt;</span><span class="nt">table</span> <span class="na">border</span><span class="o">=</span><span class="s">&#34;1&#34;</span> <span class="na">cellpadding</span><span class="o">=</span><span class="s">&#34;20&#34;</span> <span class="na">cellspacing</span><span class="o">=</span><span class="s">&#34;5&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">			<span class="p">&lt;</span><span class="nt">caption</span><span class="p">&gt;</span> 表格标题 <span class="p">&lt;/</span><span class="nt">caption</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">			<span class="p">&lt;</span><span class="nt">thead</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">				<span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">					<span class="p">&lt;</span><span class="nt">th</span> <span class="na">colspan</span><span class="o">=</span><span class="s">&#34;2&#34;</span><span class="p">&gt;</span>H5写法 横向合并<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">				<span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">			<span class="p">&lt;/</span><span class="nt">thead</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">			<span class="p">&lt;</span><span class="nt">tbody</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">				<span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">					<span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>其他写法<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">					<span class="p">&lt;</span><span class="nt">td</span> <span class="na">rowspan</span><span class="o">=</span><span class="s">&#34;2&#34;</span><span class="p">&gt;</span>纵向合并<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">				<span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">				<span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">					<span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>其他写法<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">				<span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">			<span class="p">&lt;/</span><span class="nt">tbody</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span></span></span></code></pre></div></div><p>效果展示：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="http://mucunliangtai.com/usr/uploads/2022/01/4152653597.jpg"
+        data-srcset="http://mucunliangtai.com/usr/uploads/2022/01/4152653597.jpg, http://mucunliangtai.com/usr/uploads/2022/01/4152653597.jpg 1.5x, http://mucunliangtai.com/usr/uploads/2022/01/4152653597.jpg 2x"
+        data-sizes="auto"
+        alt="http://mucunliangtai.com/usr/uploads/2022/01/4152653597.jpg"
+        title="请输入图片描述" /></p>
+<p>5 秒后跳转到对应网站</p>
+<h3 id="html-表单">HTML 表单</h3>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-chevron-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;utf-8&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>表单标签<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>注册页面<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">		<span class="c">&lt;!-- 明文用get，有密码用post --&gt;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&#34;http://mucunliangtai.com&#34;</span> <span class="na">method</span><span class="o">=</span><span class="s">&#34;get&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">			<span class="c">&lt;!-- action=&#39;#&#39;表示当前页面 --&gt;</span>
+</span></span><span class="line"><span class="cl">			<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>用户名：<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;user&#34;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&#34;木村凉太&#34;</span> <span class="p">/&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">			<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>密码：<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;password&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;pwd&#34;</span> <span class="p">/&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">			<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>爱好：
+</span></span><span class="line"><span class="cl">				<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;checkbox&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;hobby&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">checked</span><span class="o">=</span><span class="s">&#34;checked&#34;</span> <span class="p">/&gt;</span>读书
+</span></span><span class="line"><span class="cl">				<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;checkbox&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;hobby&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;1&#34;</span> <span class="p">/&gt;</span>游戏
+</span></span><span class="line"><span class="cl">				<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;checkbox&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;hobby&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;2&#34;</span> <span class="p">/&gt;</span>运动
+</span></span><span class="line"><span class="cl">			<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">			<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>性别：
+</span></span><span class="line"><span class="cl">				<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;radio&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;gender&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">checked</span><span class="o">=</span><span class="s">&#34;checked&#34;</span> <span class="p">/&gt;</span>男
+</span></span><span class="line"><span class="cl">				<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;radio&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;gender&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;1&#34;</span> <span class="p">/&gt;</span>女
+</span></span><span class="line"><span class="cl">			<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">			<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>头像：<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;file&#34;</span> <span class="p">/&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">			<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>生日：<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;date&#34;</span> <span class="p">/&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">			<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">				<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;button&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;无用的按钮&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">				<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;reset&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">				<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;submit&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">			<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">			<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>一线城市：
+</span></span><span class="line"><span class="cl">				<span class="p">&lt;</span><span class="nt">select</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;province&#34;</span> <span class="na">size</span><span class="o">=</span><span class="s">&#34;1&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">					<span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;sz&#34;</span><span class="p">&gt;</span>深圳<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">					<span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;gz&#34;</span><span class="p">&gt;</span>广州<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">					<span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;bj&#34;</span><span class="p">&gt;</span>北京<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">					<span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;sh&#34;</span><span class="p">&gt;</span>上海<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">				<span class="p">&lt;/</span><span class="nt">select</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">			<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">			<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">				<span class="p">&lt;</span><span class="nt">textarea</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;profile&#34;</span> <span class="na">cols</span><span class="o">=</span><span class="s">&#34;20&#34;</span> <span class="na">rows</span><span class="o">=</span><span class="s">&#34;5&#34;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&#34;介绍&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">textarea</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">			<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span></span></span></code></pre></div></div><p>效果展示：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="http://mucunliangtai.com/usr/uploads/2022/01/3340414582.jpg"
+        data-srcset="http://mucunliangtai.com/usr/uploads/2022/01/3340414582.jpg, http://mucunliangtai.com/usr/uploads/2022/01/3340414582.jpg 1.5x, http://mucunliangtai.com/usr/uploads/2022/01/3340414582.jpg 2x"
+        data-sizes="auto"
+        alt="http://mucunliangtai.com/usr/uploads/2022/01/3340414582.jpg"
+        title="请输入图片描述" /></p>
+<h3 id="超链接标签">超链接标签</h3>
+<p><strong>超链接：</strong> 指向一个目标的连接关系</p>
+<p><strong>链接其他文件/网页等：</strong></p>
+<p><code>&lt;a href='http://mucunliangtai.com'&gt; &lt;/a&gt;</code></p>
+<p><strong>链接本网页的其他位置：</strong>(例：返回顶部)</p>
+<p><code>&lt;a href='#id'&gt; &lt;/a&gt;</code></p>
+<p>id 为标签的对应 id ，一般需要自己定义。</p>
+<p><strong>链接打开新的标签页：</strong></p>
+<p><code>&lt;a href = 'http://mucunliangtai.com' target='_blank'&gt;</code></p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2021-09-01</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/web-%E5%89%8D%E7%AB%AF/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://localhost:1313/web-%E5%89%8D%E7%AB%AF/" data-title="Web 前端"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://localhost:1313/web-%E5%89%8D%E7%AB%AF/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="http://localhost:1313/web-%E5%89%8D%E7%AB%AF/" data-title="Web 前端"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://localhost:1313/web-%E5%89%8D%E7%AB%AF/" data-title="Web 前端"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="http://localhost:1313/web-%E5%89%8D%E7%AB%AF/" data-title="Web 前端"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/python%E6%89%A9%E5%B1%95_%E5%8F%98%E9%87%8F/" class="prev" rel="prev" title="Python扩展_变量"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Python扩展_变量</a>
+            <a href="/%E5%8A%9B%E6%89%A3%E7%83%AD%E6%A6%9C100%E7%AE%97%E6%B3%95/" class="next" rel="next" title="力扣热榜100算法">力扣热榜100算法<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.144.2">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.0"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">xxxx</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/autocomplete/autocomplete.min.js"></script><script src="/lib/lunr/lunr.min.js"></script><script src="/lib/lazysizes/lazysizes.min.js"></script><script src="/lib/clipboard/clipboard.min.js"></script><script src="/lib/sharer/sharer.min.js"></script><script src="/lib/katex/katex.min.js"></script><script src="/lib/katex/contrib/auto-render.min.js"></script><script src="/lib/katex/contrib/copy-tex.min.js"></script><script src="/lib/katex/contrib/mhchem.min.js"></script><script src="/lib/cookieconsent/cookieconsent.min.js"></script><script>window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.js"></script></body>
+</html>

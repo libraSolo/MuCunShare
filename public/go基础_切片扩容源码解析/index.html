@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Go基础_切片扩容源码解析 - 我的新Hugo网站</title><meta name="Description" content="这是我的酷站"><meta property="og:url" content="http://localhost:1313/go%E5%9F%BA%E7%A1%80_%E5%88%87%E7%89%87%E6%89%A9%E5%AE%B9%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/">
+  <meta property="og:site_name" content="我的新Hugo网站">
+  <meta property="og:title" content="Go基础_切片扩容源码解析">
+  <meta property="og:description" content="Go基础_切片扩容源码解析 // newLen通常是你当前切片的长度（即已经包含的元素数量）加上你希望添加的元素数量。 func nextslicecap(newLen, oldCap int) int { newcap := oldCap doublecap := newcap &#43; newcap if newLen &gt; doublecap { return newLen } const threshold = 256 if oldCap &lt; threshold { return doublecap } // 这个循环确保newcap至少满足newLen的期望大小。 for { // Transition from growing 2x for small slices // to growing 1.25x for large slices. This formula // gives a smooth-ish transition between the two. // 翻译：这个公式为从对小切片的小贝扩容切换到对大切片的1.25倍扩容提供了一个丝滑的切换。 newcap &#43;= (newcap &#43; 3*threshold) &gt;&gt; 2 // We need to check `newcap &gt;= newLen` and whether `newcap` overflowed. // newLen is guaranteed to be larger than zero, hence // when newcap overflows then `uint(newcap) &gt; uint(newLen)`. // This allows to check for both with the same comparison. // 翻译：我们需要检查newcap &gt;= newLen和newcap是否溢出。因为newLen保证大于0，所以当newcap溢出时，满足uint(newcap) &gt; uint(newLen)。利用这个特性我们可以同时检查上面的两个条件是否满足。 // 注：unit()会将int类型转换为uint，当newcap溢出时，会变为一个负数，使用unit会将其转换为一个非常大的正数，从而使满足而退出循环。 if uint(newcap) &gt;= uint(newLen) { break } } // Set newcap to the requested cap when // the newcap calculation overflowed. // 翻译：newcap溢出时，将newcap设置为newLen。 if newcap &lt;= 0 { return newLen } return newcap } 当newLen大于oldcap的两倍时，newcap的值等于newLen。 newLen小于等于oldcap的两倍时，当oldcap小于256，newcap的值为oldcap的两倍。 newLen小于等于oldcap的两倍时，当oldcap大于25，使用公式newcap &#43;=（newcap &#43; 3 * threshold) &gt;&gt; 2循环计算直到newcap至少等于newLen，如果计算溢出则newcap等于newLen。">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-08-02T16:21:57+08:00">
+    <meta property="article:modified_time" content="2024-08-02T16:21:57+08:00">
+    <meta property="og:image" content="http://localhost:1313/logo.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/logo.png">
+  <meta name="twitter:title" content="Go基础_切片扩容源码解析">
+  <meta name="twitter:description" content="Go基础_切片扩容源码解析 // newLen通常是你当前切片的长度（即已经包含的元素数量）加上你希望添加的元素数量。 func nextslicecap(newLen, oldCap int) int { newcap := oldCap doublecap := newcap &#43; newcap if newLen &gt; doublecap { return newLen } const threshold = 256 if oldCap &lt; threshold { return doublecap } // 这个循环确保newcap至少满足newLen的期望大小。 for { // Transition from growing 2x for small slices // to growing 1.25x for large slices. This formula // gives a smooth-ish transition between the two. // 翻译：这个公式为从对小切片的小贝扩容切换到对大切片的1.25倍扩容提供了一个丝滑的切换。 newcap &#43;= (newcap &#43; 3*threshold) &gt;&gt; 2 // We need to check `newcap &gt;= newLen` and whether `newcap` overflowed. // newLen is guaranteed to be larger than zero, hence // when newcap overflows then `uint(newcap) &gt; uint(newLen)`. // This allows to check for both with the same comparison. // 翻译：我们需要检查newcap &gt;= newLen和newcap是否溢出。因为newLen保证大于0，所以当newcap溢出时，满足uint(newcap) &gt; uint(newLen)。利用这个特性我们可以同时检查上面的两个条件是否满足。 // 注：unit()会将int类型转换为uint，当newcap溢出时，会变为一个负数，使用unit会将其转换为一个非常大的正数，从而使满足而退出循环。 if uint(newcap) &gt;= uint(newLen) { break } } // Set newcap to the requested cap when // the newcap calculation overflowed. // 翻译：newcap溢出时，将newcap设置为newLen。 if newcap &lt;= 0 { return newLen } return newcap } 当newLen大于oldcap的两倍时，newcap的值等于newLen。 newLen小于等于oldcap的两倍时，当oldcap小于256，newcap的值为oldcap的两倍。 newLen小于等于oldcap的两倍时，当oldcap大于25，使用公式newcap &#43;=（newcap &#43; 3 * threshold) &gt;&gt; 2循环计算直到newcap至少等于newLen，如果计算溢出则newcap等于newLen。">
+<meta name="application-name" content="我的酷站">
+<meta name="apple-mobile-web-app-title" content="我的酷站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/go%E5%9F%BA%E7%A1%80_%E5%88%87%E7%89%87%E6%89%A9%E5%AE%B9%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" /><link rel="prev" href="http://localhost:1313/%E6%B2%A1%E6%80%8E%E4%B9%88%E7%90%86%E8%A7%A3go%E5%B9%B6%E5%8F%91%E5%9F%BA%E6%9C%AC%E5%B9%B6%E5%8F%91%E5%8E%9F%E8%AF%AD%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8map/" /><link rel="next" href="http://localhost:1313/go%E5%B9%B6%E5%8F%91_channel/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Go基础_切片扩容源码解析",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/localhost:1313\/go%E5%9F%BA%E7%A1%80_%E5%88%87%E7%89%87%E6%89%A9%E5%AE%B9%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90\/"
+        },"genre": "posts","wordcount":  168 ,
+        "url": "http:\/\/localhost:1313\/go%E5%9F%BA%E7%A1%80_%E5%88%87%E7%89%87%E6%89%A9%E5%AE%B9%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90\/","datePublished": "2024-08-02T16:21:57+08:00","dateModified": "2024-08-02T16:21:57+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "木村凉太"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="我的新Hugo网站"></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="我的新Hugo网站"></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Go基础_切片扩容源码解析</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>木村凉太</a></span>&nbsp;<span class="post-category">included in <a href="/categories/golang/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Golang</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-08-02">2024-08-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;168 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
+            </div><div class="content" id="content"><h1 id="go基础_切片扩容源码解析">Go基础_切片扩容源码解析</h1>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-chevron-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// newLen通常是你当前切片的长度（即已经包含的元素数量）加上你希望添加的元素数量。</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">nextslicecap</span><span class="p">(</span><span class="nx">newLen</span><span class="p">,</span> <span class="nx">oldCap</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">newcap</span> <span class="o">:=</span> <span class="nx">oldCap</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">doublecap</span> <span class="o">:=</span> <span class="nx">newcap</span> <span class="o">+</span> <span class="nx">newcap</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">newLen</span> <span class="p">&gt;</span> <span class="nx">doublecap</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nx">newLen</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="kd">const</span> <span class="nx">threshold</span> <span class="p">=</span> <span class="mi">256</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">oldCap</span> <span class="p">&lt;</span> <span class="nx">threshold</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nx">doublecap</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 这个循环确保newcap至少满足newLen的期望大小。</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// Transition from growing 2x for small slices</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// to growing 1.25x for large slices. This formula</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// gives a smooth-ish transition between the two.</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">        <span class="c1">// 翻译：这个公式为从对小切片的小贝扩容切换到对大切片的1.25倍扩容提供了一个丝滑的切换。</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">newcap</span> <span class="o">+=</span> <span class="p">(</span><span class="nx">newcap</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="nx">threshold</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="c1">// We need to check `newcap &gt;= newLen` and whether `newcap` overflowed.</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// newLen is guaranteed to be larger than zero, hence</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// when newcap overflows then `uint(newcap) &gt; uint(newLen)`.</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// This allows to check for both with the same comparison.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 翻译：我们需要检查newcap &gt;= newLen和newcap是否溢出。因为newLen保证大于0，所以当newcap溢出时，满足uint(newcap) &gt; uint(newLen)。利用这个特性我们可以同时检查上面的两个条件是否满足。</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 注：unit()会将int类型转换为uint，当newcap溢出时，会变为一个负数，使用unit会将其转换为一个非常大的正数，从而使满足而退出循环。</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nb">uint</span><span class="p">(</span><span class="nx">newcap</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="nb">uint</span><span class="p">(</span><span class="nx">newLen</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">break</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// Set newcap to the requested cap when</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// the newcap calculation overflowed.</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    <span class="c1">// 翻译：newcap溢出时，将newcap设置为newLen。</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">newcap</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nx">newLen</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">newcap</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div><ol>
+<li>当<code>newLen</code>大于<code>oldcap</code>的两倍时，<code>newcap</code>的值等于<code>newLen</code>。</li>
+<li><code>newLen</code>小于等于<code>oldcap</code>的两倍时，当<code>oldcap</code>小于<code>256</code>，<code>newcap</code>的值为<code>oldcap</code>的两倍。</li>
+<li><code>newLen</code>小于等于<code>oldcap</code>的两倍时，当<code>oldcap</code>大于25，使用公式<code>newcap +=（newcap + 3 * threshold) &gt;&gt; 2</code>循环计算直到<code>newcap</code>至少等于<code>newLen</code>，如果计算溢出则<code>newcap</code>等于<code>newLen</code>。</li>
+</ol>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2024-08-02</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/go%E5%9F%BA%E7%A1%80_%E5%88%87%E7%89%87%E6%89%A9%E5%AE%B9%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://localhost:1313/go%E5%9F%BA%E7%A1%80_%E5%88%87%E7%89%87%E6%89%A9%E5%AE%B9%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" data-title="Go基础_切片扩容源码解析"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://localhost:1313/go%E5%9F%BA%E7%A1%80_%E5%88%87%E7%89%87%E6%89%A9%E5%AE%B9%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="http://localhost:1313/go%E5%9F%BA%E7%A1%80_%E5%88%87%E7%89%87%E6%89%A9%E5%AE%B9%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" data-title="Go基础_切片扩容源码解析"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://localhost:1313/go%E5%9F%BA%E7%A1%80_%E5%88%87%E7%89%87%E6%89%A9%E5%AE%B9%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" data-title="Go基础_切片扩容源码解析"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="http://localhost:1313/go%E5%9F%BA%E7%A1%80_%E5%88%87%E7%89%87%E6%89%A9%E5%AE%B9%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" data-title="Go基础_切片扩容源码解析"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/%E6%B2%A1%E6%80%8E%E4%B9%88%E7%90%86%E8%A7%A3go%E5%B9%B6%E5%8F%91%E5%9F%BA%E6%9C%AC%E5%B9%B6%E5%8F%91%E5%8E%9F%E8%AF%AD%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8map/" class="prev" rel="prev" title="sync.map"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>sync.map</a>
+            <a href="/go%E5%B9%B6%E5%8F%91_channel/" class="next" rel="next" title="Go并发_Channel">Go并发_Channel<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.144.2">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.0"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">xxxx</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/autocomplete/autocomplete.min.js"></script><script src="/lib/lunr/lunr.min.js"></script><script src="/lib/lazysizes/lazysizes.min.js"></script><script src="/lib/clipboard/clipboard.min.js"></script><script src="/lib/sharer/sharer.min.js"></script><script src="/lib/katex/katex.min.js"></script><script src="/lib/katex/contrib/auto-render.min.js"></script><script src="/lib/katex/contrib/copy-tex.min.js"></script><script src="/lib/katex/contrib/mhchem.min.js"></script><script src="/lib/cookieconsent/cookieconsent.min.js"></script><script>window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.js"></script></body>
+</html>

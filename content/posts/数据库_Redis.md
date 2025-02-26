@@ -1,11 +1,11 @@
-+++
-date = '2024-9-2T16:21:57+08:00'
-draft = false
-title = '数据库_Redis'
-author = '木村凉太'
-categories = '数据库'
-hiddenFromHomePage = true 
-+++
+---
+date : 2024-09-02T16:21:57+08:00
+draft : false
+title : '数据库_Redis'
+author : '木村凉太'
+categories : ['数据库']
+hiddenFromHomePage : true 
+---
 
 # 数据库_Redis
 

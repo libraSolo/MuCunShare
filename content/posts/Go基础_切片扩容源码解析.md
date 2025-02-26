@@ -1,11 +1,11 @@
-+++
-date = '2024-8-2T16:21:57+08:00'
-draft = false
-title = 'Go基础_切片扩容源码解析'
-author = '木村凉太'
-categories = 'Golang'
-hiddenFromHomePage = true 
-+++
+---
+date : 2024-08-02T16:21:57+08:00
+draft : false
+title : 'Go基础_切片扩容源码解析'
+author : '木村凉太'
+categories : ['Golang']
+hiddenFromHomePage : true 
+---
 
 # Go基础_切片扩容源码解析
 

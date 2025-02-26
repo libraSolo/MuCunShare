@@ -1,11 +1,11 @@
-+++
-date = '2021-02-24T16:21:57+08:00'
-draft = false
-title = 'Python_函数基础'
-author = '木村凉太'
-categories = 'Python'
-hiddenFromHomePage = true 
-+++
+---
+date : 2021-02-24T16:21:57+08:00
+draft : false
+title : 'Python_函数基础'
+author : '木村凉太'
+categories : ['Python']
+hiddenFromHomePage : true 
+---
 
 # Python_函数基础
 # 1. 定义一个函数

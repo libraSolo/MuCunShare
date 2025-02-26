@@ -1,7 +1,79 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Categories - Category - 我的新Hugo网站</title>
-        <link>http://localhost:53459/categories/</link>
+        <link>http://localhost:1313/categories/</link>
         <description>Categories - Category - 我的新Hugo网站</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><atom:link href="http://localhost:53459/categories/" rel="self" type="application/rss+xml" /></channel>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 03 Sep 2024 16:21:57 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/categories/" rel="self" type="application/rss+xml" /><item>
+    <title>笔记</title>
+    <link>http://localhost:1313/categories/%E7%AC%94%E8%AE%B0/</link>
+    <pubDate>Tue, 03 Sep 2024 16:21:57 &#43;0800</pubDate>
+    <author>xxxx</author>
+    <guid>http://localhost:1313/categories/%E7%AC%94%E8%AE%B0/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>数据库</title>
+    <link>http://localhost:1313/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+    <pubDate>Mon, 02 Sep 2024 16:21:57 &#43;0800</pubDate>
+    <author>xxxx</author>
+    <guid>http://localhost:1313/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Golang</title>
+    <link>http://localhost:1313/categories/golang/</link>
+    <pubDate>Thu, 15 Aug 2024 16:21:57 &#43;0800</pubDate>
+    <author>xxxx</author>
+    <guid>http://localhost:1313/categories/golang/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>生活</title>
+    <link>http://localhost:1313/categories/%E7%94%9F%E6%B4%BB/</link>
+    <pubDate>Sun, 24 Dec 2023 16:21:57 &#43;0800</pubDate>
+    <author>xxxx</author>
+    <guid>http://localhost:1313/categories/%E7%94%9F%E6%B4%BB/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Bug</title>
+    <link>http://localhost:1313/categories/bug/</link>
+    <pubDate>Thu, 01 Dec 2022 16:21:57 &#43;0800</pubDate>
+    <author>xxxx</author>
+    <guid>http://localhost:1313/categories/bug/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>面试题</title>
+    <link>http://localhost:1313/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/</link>
+    <pubDate>Fri, 03 Sep 2021 16:21:57 &#43;0800</pubDate>
+    <author>xxxx</author>
+    <guid>http://localhost:1313/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>算法</title>
+    <link>http://localhost:1313/categories/%E7%AE%97%E6%B3%95/</link>
+    <pubDate>Thu, 02 Sep 2021 16:21:57 &#43;0800</pubDate>
+    <author>xxxx</author>
+    <guid>http://localhost:1313/categories/%E7%AE%97%E6%B3%95/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Web</title>
+    <link>http://localhost:1313/categories/web/</link>
+    <pubDate>Wed, 01 Sep 2021 16:21:57 &#43;0800</pubDate>
+    <author>xxxx</author>
+    <guid>http://localhost:1313/categories/web/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Python</title>
+    <link>http://localhost:1313/categories/python/</link>
+    <pubDate>Fri, 13 Aug 2021 16:21:57 &#43;0800</pubDate>
+    <author>xxxx</author>
+    <guid>http://localhost:1313/categories/python/</guid>
+    <description><![CDATA[]]></description>
+</item>
+</channel>
 </rss>

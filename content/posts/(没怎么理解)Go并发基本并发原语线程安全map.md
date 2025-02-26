@@ -1,11 +1,11 @@
-+++
-date = '2024-06-24T16:21:57+08:00'
-draft = false
-title = 'sync.map'
-author = '木村凉太'
-categories = 'Golang'
-hiddenFromHomePage = true 
-+++
+---
+date : 2024-06-24T16:21:57+08:00
+draft : false
+title : 'sync.map'
+author : '木村凉太'
+categories : ['Golang']
+hiddenFromHomePage : true 
+---
 
 # (没怎么理解)Go并发_基本并发原语_线程安全map
 
