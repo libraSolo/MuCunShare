@@ -6,5 +6,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="posts" />
+    <orderEntry type="module" module-name="awesome-low-level-design-main" />
   </component>
 </module>
